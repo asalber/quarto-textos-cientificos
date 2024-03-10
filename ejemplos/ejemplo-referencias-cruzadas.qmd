@@ -1,0 +1,26 @@
+---
+title: Referencias cruzadas
+lang: es
+---
+
+## Funciones trigonométricas {#sec-trigonometria}
+
+Las funciones trigonométricas básicas se definen a través de las relaciones entre los lados de un triángulo rectángulo.
+
+:::{#def-coseno}
+## Coseno
+En un triángulo rectángulo con cateto adyacente $a$, cateto opuesto $b$ y hipotenusa $c$, el coseno del ángulo $\theta$ entre el cateto adyacente y la hipotenusa, se define como el cociente entre el cateto adyacente a $\theta$ y la hipotenusa,
+
+$$
+\cos(\theta) = \frac{a}{c}.
+$$ {#eq-coseno}
+:::
+
+```{julia}
+#| label: fig-coseno
+#| fig-cap: Gráfica de la función coseno.
+using Plots, LaTeXStrings
+plot(cos, 0, 2pi, label=L"\cos(x)")
+```
+
+La figura @fig-coseno muestra la gráfica de la función coseno (ver @def-coseno de la sección @sec-trigonometria).

@@ -1,0 +1,15 @@
+---
+title: Figuras en columnas
+lang: es
+---
+
+Ejemplo de figuras en dos columnas.
+
+::: {layout-ncol=2}
+
+![Corazón en formato SVG](img/corazon.svg){#fig-corazon-svg width=200}
+
+![Corazón en formato PNG](img/corazon.png){#fig-corazon-png width=200}
+:::
+
+La figura @fig-corazon-svg está formato SVG, y la figura @fig-corazon-png está en formato PNG.

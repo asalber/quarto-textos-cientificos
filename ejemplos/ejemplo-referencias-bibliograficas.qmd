@@ -1,0 +1,11 @@
+---
+title: Referencias bibliográficas
+bibliography: bibliografia.bib
+cls: apa.cls
+lang: es
+---
+
+Bienvenidos a este tutorial de **Quarto** (desarrollado por @quarto2024).
+
+Quarto está especialmente diseñado para elaborar documentos
+científicos y técnicos reproducibles [ver @knuth1984].

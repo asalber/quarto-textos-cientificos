@@ -1,0 +1,38 @@
+---
+title: Bloques de código en Python
+lang: es
+---
+
+La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.
+
+```{python}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales
+#| fig-align: left
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(0, 3, 100)
+fig, ax = plt.subplots()
+ax.plot(x, 2**x, label=r'$2^x$')
+ax.plot(x, np.exp(x), label=r'$e^x$')
+ax.legend()
+plt.show()
+```
+
+La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.
+
+```{python}
+#| label: fig-logaritmicas
+#| fig-cap: Funciones logarítmicas
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(1, 10, 100)
+fig, ax = plt.subplots()
+ax.plot(x, np.log2(x), label=r'$\log_2(x)$')
+ax.plot(x, np.log(x), label=r'$\ln(x)$')
+ax.legend()
+plt.show()
+```

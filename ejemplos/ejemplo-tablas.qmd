@@ -1,0 +1,11 @@
+---
+title: Tablas
+---
+
+Ejemplo de tabla con la primera columna alineada a la izquierda, la segunda centrada y la tercera alineada a la derecha.
+
+| Nombre | Ciudad    | Edad |
+|:------ |:---------:| ----:|
+| María  | Valencia  |  22  |
+| Juan   | Madrid    |  50  |
+| Carmen | Barcelona |  35  |

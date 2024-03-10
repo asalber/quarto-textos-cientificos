@@ -1,0 +1,10 @@
+---
+title: Fórmulas matemáticas
+lang: es
+---
+
+Este es un ejemplo de una fórmula en linea $\int_{a}^{b} \frac{x^2}{x+1}\, dx$. Y a continuación se muestra la misma fórmula desplegada
+
+$$
+\int_{a}^{b} \frac{x^2}{x+1}\, dx.
+$$

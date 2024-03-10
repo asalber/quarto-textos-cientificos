@@ -1,0 +1,12 @@
+---
+title: Encabezados de secciones
+---
+
+# Sección
+Sección de nivel 1.
+
+## Subsección
+Subsección de nivel 2.
+
+### Subsubsección
+Subsubsección de nivel 3.

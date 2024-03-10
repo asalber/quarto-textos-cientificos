@@ -1,0 +1,17 @@
+---
+title: Figuras en diferentes formatos
+format:
+    html:
+        default-image-extension: svg
+    pdf:
+        default-image-extension: pdf
+lang: es
+---
+
+Ejemplo de imagen en formato vectorial.
+
+![Corazón](img/corazon){width=200}
+
+Ejemplo de imagen en formato mapa de bits.
+
+![Corazón](img/corazon.png){width=200}

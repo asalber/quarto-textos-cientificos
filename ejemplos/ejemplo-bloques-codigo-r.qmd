@@ -1,0 +1,30 @@
+---
+title: Bloques de código en R
+lang: es
+---
+
+La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda y escalada con anchura 5 y altura 4 pulgadas.
+
+```{r}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales.
+#| fig-align: left
+#| fig-width: 5
+#| fig-height: 4
+x = seq(0, 3, length.out=100)
+plot(x, 2^x, type="l", col="blue", lwd=2, xlab="x", ylab="y")
+lines(x, exp(x), col="red", lwd=2)
+legend("topleft", legend=c(expression(2^x), expression(e^x)), col=c("blue", "red"), lwd=2)
+```
+
+La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.
+
+```{r}
+#| label: fig-logaritmicas
+#| fig-cap: Funciones logarítmicas.
+#| echo: false
+x = seq(1, 10, length.out=100)
+plot(x, log(x, 2), type="l", col="blue", lwd=2, xlab="x", ylab="y")
+lines(x, log(x), col="red", lwd=2)
+legend("topleft", legend=c(expression(log[2](x)), expression(log(x))), col=c("blue", "red"), lwd=2)
+```

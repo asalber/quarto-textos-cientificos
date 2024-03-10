@@ -1,0 +1,850 @@
+---
+title: Creación de documentos científicos con Quarto
+description: Una breve introducción a Quarto para la elaboración de documentos científicos o técnicos con ejemplos reproducibles.
+date: 2024-03-01
+author:
+  - name: Alfredo Sánchez Alberca
+    url: https://aprendeconalf.es/quarto-introuccion.html
+    affiliation: Universidad CEU San Pablo
+    affiliation-url: https://www.uspceu.es
+citation: true
+format:
+  html:
+    code-line-numbers: true
+toc: true
+theme:
+  light: flatly
+  dark: darkly
+lang: es
+---
+
+## ¿Qué es Quarto?
+
+[Quarto](https://quarto.org/) es un sistema moderno de creación de documentos dinámicos, informes, presentaciones, libros, sitios web y más, a partir de archivos de texto plano y por medio del conversor universal de documentos [Pandoc](https://pandoc.org/).
+
+![Logotipo de Quarto](/img/logos/logo-quarto.png)
+
+Se puede decir que Quarto es una evolución de los sistemas de autoría como [Jupyter](https://jupyter.org/), [R Markdown](https://rmarkdown.rstudio.com/) y otros, ya que extiende las capacidades de estos sistemas permitiendo a los usuarios trabajar con múltiples lenguajes de programación como [Python](https://www.python.org/), [R](https://www.r-project.org/), [Julia](https://julialang.org/), y [Observable JavaScript](https://observablehq.com/@observablehq/observable-javascript), todo dentro del mismo documento. Esto lo convierte en una poderosa herramienta para la creación de informes de análisis de datos, documentación de proyectos de software, artículos científicos e incluso libros. Está especialmente diseñado para elaborar documentos técnicos y científicos [reproducibles](https://en.wikipedia.org/wiki/Reproducibility).
+
+Quarto ha sido desarrollado y es mantenido por [Posit](https://posit.co/) (antiguo RStudio) y es un proyecto de código abierto con una comunidad activa de usuarios y desarrolladores.
+
+### Características Principales
+
+-   **Multiplataforma**. Es multiplataforma, lo que significa que puedes utilizarlo en los sistemas operativos Windows, macOS y Linux.
+
+-   **Basado en Markdown:** Quarto utiliza la sintaxis de Markdown para la creación de documentos, lo que facilita la escritura y la lectura de los mismos.
+
+-   **Soporte para múltiples lenguajes:** Quarto permite integrar código de diferentes lenguajes de programación en un solo documento, facilitando el análisis de datos y la visualización de resultados.
+
+-   **Multitud de formatos de salida:** Los documentos Quarto se pueden convertir a una gran variedad de formatos incluyendo HTML, PDF, Word, EPUB, presentaciones (Reveal.js, PowerPoint), LaTeX y Jupyter Notebooks, entre otros.
+
+-   **Soporte para publicación científica:** Quarto facilita la inclusión de citas bibliográficas, referencias cruzadas, figuras, y tablas, lo que lo hace ideal para la elaboración de documentos científicos y técnicos.
+
+-   **Integración entornos de desarrollo:** Se integra perfectamente en entornos de desarrollo como [Jupyter Notebooks](https://jupyter.org/), [RStudio](https://www.rstudio.com/categories/rstudio-ide/) o [Visual Studio Code](https://code.visualstudio.com/), lo que permite a los usuarios trabajar con sus herramientas favoritas.
+
+-   **Extensible:** Los usuarios pueden personalizar y extender las capacidades de Quarto mediante el uso de extensiones y el desarrollo de nuevas funcionalidades.
+
+## Instalación
+
+Quarto puede descargarse desde el [sitio web de Quart](https://quarto.org/docs/get-started/). Existen versiones para Windows, macOS y Linux, así como una versión basada en Docker para aquellos que prefieren trabajar con contenedores.
+
+Aunque se puede utilizar desde la línea de comandos, es recomendable instalarlo en un entorno de desarrollo integrado (IDE) como [RStudio](https://www.rstudio.com/products/rstudio/download/), [Visual Studio Code](https://code.visualstudio.com/), o [Jupyter Notebooks](https://jupyter.org/). Estos IDEs ofrecen una interfaz gráfica para trabajar con Quarto, lo que facilita la creación y edición de documentos.
+
+### Integración con RStudio
+
+Las últimas versiones de RStudio ya reconocen los ficheros con extensión `*.qmd` como ficheros de código fuente de Quarto, lo que permite compilarlos a diferentes formatos con un solo clic, al igual que ocurre con los ficheros en formato R Markdown. Además, incorpora ayuda contextual y menús para facilitar la creación de elementos como tablas, figuras, referencias bibliográficas, etc.
+
+### Integración con Visual Studio Code
+
+En el caso de Visual Studio Code, se puede instalar la extensión de Quarto desde el [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=quarto.quarto-vscode). Una vez instalada, Visual Studio Code reconocerá los ficheros con extensión `*.qmd` como ficheros de código fuente de Quarto y permitirá compilarlos a diferentes formatos con un solo clic. Al igual que en RStudio, la extensión de Visual Studio Code incorpora ayuda contextual para la creación de tablas, figuras, referencias bibliográficas, etc.
+
+## Proceso de creación de documentos con Quarto
+
+El proceso de creación de un documento con Quarto consta de los siguientes pasos:
+
+1.  **Creación del documento**. El primer paso es la creación de un fichero de texto plano con extensión `.qmd` (Quarto Markdown). Este fichero normalmente consta de la siguientes partes:
+
+    -   **Encabezado**. Se escribe en formato [YAML](https://es.wikipedia.org/wiki/YAML) y en él especifican las propiedades del documento, como el título, el autor, la fecha, el formato de salida, el motor de renderizado, los márgenes, la justificación del texto, disposición por defecto de figuras y tablas, el formato de la bibliografía, etc.
+
+    -   **Cuerpo**. Se escribe en formato [Markdown](https://es.wikipedia.org/wiki/Markdown) y en él se incluye el texto del documento, que puede incluir elementos como listas, tablas, figuras, referencias cruzadas, referencias bibliográficas, etc.
+
+    -   **Bloques de código**. Son bloques de código de diferentes lenguajes de programación, como [Python](https://www.python.org/), [R](https://www.r-project.org/), [Julia](https://julialang.org/) y [Observable JavaScript](https://observablehq.com/@observablehq/observable-javascript), que se incluyen en el cuerpo del documento y que pueden ser ejecutados durante el proceso de compilación del documento para generar resultados en el documento final.
+
+    -   **Bibliografía**. Se escribe en formato [BibTeX](https://es.wikipedia.org/wiki/BibTeX) y en ella se incluyen las ref erencias bibliográficas que se citan en el cuerpo del documento.
+
+    ::: {#exm-fichero-fuente}
+    El siguiente es un ejemplo de un fichero fuente de Quarto con nombre `introduccion.qmd`, que incluye el encabezado, el cuerpo, un bloque de código en el lenguaje R y la bibliografía de un sencillo documento.
+
+    ````         
+    --- # <1>
+    title: "Una introducción a Quarto" # <1>
+    author: "Alfredo Sánchez Alberca" # <1>
+    date: "2024-02-29" # <1>
+    output: html # <1>
+    bibliography: bibliografia.bib # <1>
+    cls: apa.cls # <1>
+    --- # <1>
+
+    Bienvenidos a este tutorial de **Quarto**. # <2>
+
+    Quarto está especialmente diseñado para elaborar documentos # <2>
+    científicos y técnicos reproducibles [ver @knuth1984], y permite incluir código # <2>
+    como el de más abajo. # <2>
+
+    ```{r} # <3>
+    x <- rnorm(100) # <3>
+    hist(x) # <3>
+    ```
+    ````
+
+    1.  Encabezado YAML. Se delimita por tres guiones `---`. La línea 1 indica el título, la línea 2 el autor, la línea 3 la fecha, la línea 4 el formato de salida, la línea 5 el fichero de bibliografía y la línea 6 el estilo de la bibliografía.
+    2.  Texto del documento en formato Markdown.
+    3.  Bloque de código R.
+    :::
+
+2.  **Renderizado**. Para generar el documento final se compila el fichero fuente utilizando el comando `quarto render` desde la línea de comandos o mediante un botón o combinación de teclas en entornos de desarrollo como RStudio o VSCode. El proceso de renderizado tiene las siguientes etapas:
+
+    a.  **Conversión a un notebook de Jupyter**. En esta etapa se convierte el fichero fuente a un notebook de Jupyter, que es un fichero en formato JSON que contiene el texto del documento, los bloques de código y los resultados de la ejecución de los bloques de código.
+
+    b.  **Ejecución de los bloques de código**. En esta etapa se ejecutan los bloques de código del notebook de Jupyter para generar los resultados de la ejecución de los bloques de código.
+
+    c.  **Conversión a markdown**. En esta etapa se convierte el notebook de Jupyter a un fichero en formato markdown que contiene el texto del documento, los bloques de código y los resultados de la ejecución de los bloques de código.
+
+    d.  **Conversión al formato de salida**. En esta etapa se convierte el fichero en formato markdown a un fichero en el formato de salida especificado en el encabezado del fichero fuente, mediante Pandoc.
+
+    ![Proceso de renderizado](img/renderizado-quarto.png)
+
+    ::: {#exm-renderizado}
+    El siguiente comando realiza el renderizado del fichero fuente del ejemplo anterior al formato HTML.
+
+    ``` bash
+    quarto render introduccion.qmd
+    ```
+    :::
+
+3.  **Visualización del documento**. El último paso consiste en visualizar el documento final en un navegador web, en un visor de PDF, en un visor de documentos de Word, en un visor de presentaciones, dependiente del formato de salida. Algunos entornos de desarrollo como RStudio y VSCode permiten visualizar el documento final directamente en el entorno de desarrollo.
+
+    ::: {#exm-visualizacion-documento-final}
+    A continuación se muestra el documento HTML obtenido al renderizar el fichero fuente anterior.
+
+    ::: {.callout-note title="Resultado"}
+      <embed type="text/html" src="ejemplos/ejemplo-documento.html" width="750" height="600">
+    :::
+    :::
+
+## Introducción a Markdown
+
+Markdown es un lenguaje de marcado ligero que permite formatear texto de manera sencilla y rápida. Fue creado por John Gruber en 2004 con el objetivo de permitir a las personas escribir utilizando un formato de texto plano fácil de leer y escribir, pero que pudiera ser convertido fácilmente a HTML.
+
+### Encabezados de secciones
+
+Para crear encabezados de sección se utiliza el símbolo almohadilla `#`. El número de almohadillas indica el nivel de la subsección, es decir, una almohadilla indica una sección, dos una subsección, tres una subsubsección, y así sucesiavamente.
+
+::: {#exm-encabezados}
+El siguiente código fuente
+
+``` markdown
+---
+title: Encabezados de secciones
+---
+
+# Sección
+Sección de nivel 1.
+
+## Subsección
+Subsección de nivel 2.
+
+### Subsubsección
+Subsubsección de nivel 3.
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}
+  <embed type="text/html" src="ejemplos/ejemplo-encabezados.html" width="780" height="470">
+:::
+:::
+
+### Énfasis
+
+Para crear texto en *cursiva* se utiliza el asterisco `*` o el guion bajo `_` al principio y al final del texto, y para crear texto en *negrilla* se utiliza dos asteriscos `**` o dos guiones bajos `__` al principio y al final del texto.
+
+::: {#exm-enfasis}
+El siguiente código fuente
+
+``` markdown
+---
+title: Énfasis
+lang: es
+---
+
+En markdown puedes escribir texto en _cursiva_ o en **negrita**.
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}
+  <embed type="text/html" src="ejemplos/ejemplo-enfasis.html" width="780" height="200">
+:::
+:::
+
+### Listas
+
+Para crear listas no ordenadas en Markdown $se utiliza el guion `-` o el asterisco `*` al principio de cada elemento de la lista, y para crear listas ordenadas se utiliza el número seguido de un punto `1.` al principio de cada elemento de la lista. Independientemente del número que se ponga, Markdown se encarga automáticamente de numerar los elementos de la lista.
+
+Las listas pueden ser anidadas, es decir, una lista puede contener otra lista. Para ello los items de la sublista *deben estar indentados con 4 espacios*.
+
+::: {#exm-listas}
+El siguiente código fuente
+
+``` markdown
+---
+title: Listas
+lang: es
+---
+
+Ejemplo de lista no ordenada:
+
+-  Un item.
+-  Otro item.
+   -  Un subitem.
+   -  Otro subitem.
+
+Ejemplo de lista ordenada:
+
+1.  Primer item.
+2.  Segundo item.
+    a.  Primer subitem.
+    b.  Segundo subitem.
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}
+  <embed type="text/html" src="ejemplos/ejemplo-listas.html" width="780" height="470">
+:::
+:::
+
+### Tablas
+
+Para crear tablas en Markdown se utiliza el carácter `|` para separar columnas y `-` para separar la cabecera de las filas.
+
+La primera fila de la tabla se utiliza para especificar los encabezados de las columnas.
+
+La alineación de las columnas se especifica en la segunda fila, dentro de cada columna, utilizando los caracteres `:-` para alinear a la izquierda, `:-:` para centrar y `-:` para alinear a la derecha.
+
+El cuerpo de la tabla se especifica en las filas siguientes.
+
+::: {#exm-tablas}
+El siguiente código fuente
+
+``` markdown
+---
+title: Tablas
+lang: es
+---
+
+Ejemplo de tabla con la primera columna alineada a la izquierda, la segunda centrada y la tercera alineada a la derecha.
+
+| Nombre | Ciudad    | Edad |
+|:------ |:---------:| ----:|
+| María  | Valencia  |  22  |
+| Juan   | Madrid    |  50  |
+| Carmen | Barcelona |  35  |
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-tablas.html" width="780" height="400">
+:::
+:::
+
+### Imágenes
+
+Para insertar imágenes en Markdown se utiliza la sintaxis `![Texto alternativo](ruta-imagen)`, donde `Texto alternativo` es el texto que se muestra si la imagen no se puede cargar, y `ruta-imagen` es la ruta al archivo de imagen. 
+
+Si este código se introduce dentro de un párrafo la imagen se coloca en línea con el texto del párrafo, mientras que si se coloca en una línea aparte la imagen se muestra desplegada. En este último caso, las imágenes se muestran centradas por defecto.
+
+::: {#exm-imagenes}
+El siguiente código fuente
+
+``` markdown
+---
+title: Imágenes
+lang: es
+---
+
+Ejemplo de imagen en línea ![Logotipo de Quarto](img/logo-quarto.png)
+
+Ejemplo de imagen desplegada
+
+![Logotipo de Quarto](img/logo-quarto.png)
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-imagenes.html" width="780" height="420">
+:::
+:::
+
+### Fórmulas matemáticas
+
+Markdown permite incluir fórmulas matemáticas en el texto del documento utilizando la sintaxis de [LaTeX](https://es.wikipedia.org/wiki/LaTeX), que es un sistema de composición de textos especializado en la producción de documentos científicos y técnicos.[^1] Para incluir fórmulas matemáticas en línea dentro de un párrafo se utiliza la sintaxis `$ fórmula $`, y para incluir la fórmula desplegada se utiliza la sintaxis `$$ fórmula $$` para incluir la fórmula desplegada.
+
+[^1]: La sintaxis de LaTeX para las fórmulas matemáticas se basa en la sintaxis de MathJax, que es un motor de representación de fórmulas matemáticas en HTML y que es compatible con la sintaxis de LaTeX, pero solo admite un subconjunto de las funcionalidades de LaTeX.
+
+::: {#exm-formulas-matematicas}
+El siguiente código fuente
+
+```markdown
+---
+title: Fórmulas matemáticas
+lang: es
+---
+
+Este es un ejemplo de una fórmula en linea $\int_{a}^{b} \frac{x^2}{x+1}\, dx$. Y a continuación se muestra la misma fórmula desplegada
+
+$$
+\int_{a}^{b} \frac{x^2}{x+1}\, dx.
+$$
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-formulas-matematicas.html" width="780" height=300">
+:::
+:::
+
+## Figuras 
+
+Para incluir figuras en un documento Quarto se utiliza la misma sintaxis
+que para las imágenes en Markdown, pero Quarto amplia las capacidades de Markdown permitiendo escalar y alinear la imagen, además de añadir un pie de figura con el texto alternativo de la imagen.
+
+Para cambiar el tamaño de la imagen se utiliza la sintaxis `![Texto alternativo](ruta-imagen){width=w heigth=h}`, donde `w` indica que la imagen `w` es la anchura de la imagen y `h` es la altura. Si solo se especifica la anchura, la altura se ajusta automáticamente para mantener la relación de aspecto, y al revés. Tanto la anchura como la altura se pueden especificar en pixeles, centímetros o porcentaje.
+
+Para alinear la imagen se utiliza la sintaxis `![Texto alternativo](ruta-imagen){fig-align="alineacion"}`, donde `alineacion` puede ser `left` para alinear a la izquierda, `right` para alinear a la derecha. Si no se especifica la alineación, la imagen se muestra centrada por defecto.
+
+::: {#exm-figuras}
+El siguiente código fuente
+
+``` markdown
+---
+title: Figuras
+lang: es
+---
+
+Ejemplo de imagen original.
+
+![Logotipo de Quarto](img/logo-quarto.png)
+
+Ejemplo de imagen escalada a 200 pixels de ancho y alineada a la izquierda. 
+
+![Logotipo de Quarto](img/logo-quarto.png){width=200 fig-align="left"}
+
+Ejemplo de imagen escalada a 200 pixels de ancho y alto, y alineada a la derecha.
+
+![Logotipo de Quarto](img/logo-quarto.png){width=200 height=200 fig-align="right"}
+
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-figuras.html" width="780" height="800">
+:::
+:::
+
+Dependiendo del formato de salida, puede interesar utilizar un formato de imagen diferente. Por ejemplo, en el caso de un documento HTML, puede ser más conveniente utilizar un formato de imagen vectorial como SVG, que se escala sin pérdida de calidad, mientras que si el documento final es un PDF, puede ser más conveniente utilizar también una imagen en formato PDF. Si no se especifica la extensión de la imagen, Quarto buscará una imagen con extensión PNG cuando el documento de salida es HTML, y una imagen con extensión PDF cuando el documento de salida es PDF.
+
+Este comportamiento puede modificarse en el encabezado YAML del documento, especificando el formato de la imagen con la propiedad `default-image-extension = formato`.
+
+::: {#exm-figuras-formatos}
+El siguiente código fuente
+
+``` markdown
+---
+title: Figuras en diferentes formatos
+format:
+    html:
+        default-image-extension: svg
+    pdf:
+        default-image-extension: pdf
+lang: es
+---
+
+Ejemplo de imagen en formato vectorial.
+
+![Corazón](img/corazon){width=200}
+
+Ejemplo de imagen en formato mapa de bits.
+
+![Corazón](img/corazon.png){width=200}
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"} 
+:::{.panel-tabset}
+## HTML
+
+  <embed type="text/html" src="ejemplos/ejemplo-figuras-formatos.html" width="780" height="700">
+
+## PDF
+
+  <embed type="text/pdf" src="ejemplos/ejemplo-figuras-formatos.pdf" width="780" height="800">
+:::
+:::
+:::
+
+Para poder referenciar una figura en el texto del documento, hay que etiquetarla añadiendo `{#fig-etiqueta}` al final de la sintaxis de la figura,donde `etiqueta`es el identificador único de la figura. Una vez etiquetada, la figura se puede referenciar en el texto del documento utilizando la etiqueta con la sintaxis `@fig-etiqueta`.
+
+Quarto permite organizar varias figuras en columnas o filas añadiendo bloques de disposición en columnas o filas. Para una disposición en columnas se utiliza el bloque 
+
+``` markdown
+::: {layout-ncol=num} 
+
+:::
+```
+donde `num` es el número de columnas.
+
+::: {#exm-figuras-columnas}
+El siguiente código fuente
+
+``` markdown
+---
+title: Figuras en columnas
+lang: es
+---
+
+Ejemplo de figuras en dos columnas.
+
+::: {layout-ncol=2}
+
+![Corazón en formato SVG](img/corazon.svg){#fig-corazon-svg width=200}
+
+![Corazón en formato PNG](img/corazon.png){#fig-corazon-png width=200}
+:::
+
+La figura @fig-corazon-svg está formato SVG, y la figura @fig-corazon-png está en formato PNG.
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-figuras-columnas.html" width="780" height="500">
+:::
+:::
+
+## Bloques de código
+
+Una de las características que más potencial le dan a Quarto es la posibilidad de incluir bloques de código de diferentes lenguajes de programación en el cuerpo del documento, y ejecutarlos durante el proceso de renderizado del documento para generar resultados en el documento final. Esta es una característica heredada de los sistemas de autoría como [Jupyter](https://jupyter.org/), [R Markdown](https://rmarkdown.rstudio.com/), pero Quarto lo ha mejorado notablemente, permitiendo la ejecución de bloques de código de diferentes lenguajes de programación como Python, R o Julia en un mismo documento.
+
+Para crear un bloque de código en Quarto se utiliza la sintaxis 
+
+````markdown
+```{lenguaje}
+código
+```
+````
+donde `lenguaje` es el lenguaje de programación del bloque de código.
+
+Se puede configurar el resultado de la ejecución del bloque de código en el documento final mediante comentarios especiales al comienzo del bloque de código. Los comentarios de configuración comienzan on los caracteres `#|` y los más comunes son:
+
+-  `#| echo: false`: No muestra el código fuente en el documento final.
+-  `#| output: false`: No muestra el resultado de la ejecución del código en el documento final.
+-  `#| label: etiqueta`: Asocia una `etiqueta` al bloque de código para poder referenciarlo en el texto del documento.
+-  `#| fig-cap: texto`: Añade un pie de texto al resultado de la ejecución del bloque de código.
+-  `#| error: false`: No muestra los mensajes de error generados por la ejecución del código.
+-  `#| warning: false`: No muestra los mensajes de advertencia generados por la ejecución del código.
+
+Existen otras opciones de configuración del resultado de la ejecución que dependen del lenguaje de programación del bloque de código.
+
+### Bloques de código en Python
+
+Los bloques de código en Python se renderizan por defecto con el kernel `pytho3` de `jupyter`. Conviene además tener instalado el paquete `jupyter-cache` para que los resultados de la ejecución de los bloques de código se guarden en caché y no se ejecuten de nuevo si no han cambiado.
+
+### Bloques de código en R
+
+Los bloques de código en R se renderizan por defecto con `knitr` y aceptan las opciones de configuración de R Markdown, en particular
+
+-  `#|fig-width: ancho`: Ajusta la anchura de las figuras generadas por el bloque de código a `ancho`.
+-  `#|fig-height: alto`: Ajusta la altura de las figuras generadas por el bloque de código a `alto`.
+
+### Bloques de código en Julia
+
+Los bloques de código en Julia se renderizan por defecto con el kernel [`IJulia`](https://julialang.github.io/IJulia.jl/stable/) de `jupyter`, por lo que es necesario tener instaldo el paquete `IJulia` de Julia. Además, conviene instalar el paquete [`Revise`](https://timholy.github.io/Revise.jl/stable/) para que las sesiones de Julia sean persistentes y los resultados de la ejecución de los bloques de código se guarden en caché.
+
+Los bloques de código en Julia solo muestran como resultado de la ejecución la última expresión evaluada. Si se quiere mostrar más de un resultado en el mismo bloque de código, se puede utilizar la función `display` de Julia.
+
+### Opciones globales de configuración de la ejecución
+
+Estas opciones de configuración del resultado de la ejecución de los bloques de código se pueden especificar en el encabezado YAML del documento (sin los caracteres de comentario) para aplicarlas a todos los bloques de código del documento. Algunas opciones de configuración globales bastante útiles son:
+
+``` yaml
+execute:
+  echo: false       # No muestra el código fuente en el documento final.
+  output: false     # No muestra el resultado de la ejecución del código en el documento final.
+  error: false      # No muestra los mensajes de error generados por la ejecución del código.
+  warning: false    # No muestra los mensajes de advertencia generados por la ejecución del código.
+  fig-width: ancho  # Ajusta la anchura de las figuras generadas por los bloques de código a ancho.
+  fig-height: alto  # Ajusta la altura de las figuras generadas por los bloques de código a alto.
+  cache: true       # Guarda en caché los resultados de la ejecución de los bloques de código.
+  enable: false     # Deshabilita la ejecución de los bloques de código.
+```
+
+::: {#exm-bloques-codigo}
+:::{.panel-tabset}
+## Python
+
+El siguiente código fuente
+
+```` markdown
+---
+title: Bloques de código en Python
+lang: es
+---
+
+La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.
+
+```{{python}}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales
+#| fig-align: left
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(0, 3, 100)
+fig, ax = plt.subplots()
+ax.plot(x, 2**x, label=r'$2^x$')
+ax.plot(x, np.exp(x), label=r'$e^x$')
+ax.legend()
+plt.show()
+```
+
+La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.
+
+```{{python}}
+#| label: fig-logaritmicas
+#| fig-cap: Funciones logarítmicas
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(1, 10, 100)
+fig, ax = plt.subplots()
+ax.plot(x, np.log2(x), label=r'$\log_2(x)$')
+ax.plot(x, np.log(x), label=r'$\ln(x)$')
+ax.legend()
+plt.show()
+```
+````
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-bloques-codigo-python.html" width="780" height="600">
+:::
+
+## R
+
+El siguiente código fuente
+
+```` markdown
+---
+title: Bloques de código en R
+lang: es
+---
+
+La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda y escalada con anchura 5 y altura 4 pulgadas.
+
+```{{r}}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales.
+#| fig-align: left
+#| fig-width: 5
+#| fig-height: 4
+x = seq(1, 3, length.out=100)
+plot(x, 2^x, type="l", col="blue", lwd=2, xlab="x", ylab="y")
+lines(x, exp(x), col="red", lwd=2)
+legend("topleft", legend=c(expression(2^x), expression(e^x)), col=c("blue", "red"), lwd=2)
+```
+
+La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.
+
+```{{r}}
+#| label: fig-logaritmicas
+#| fig-cap: Funciones logarítmicas.
+#| echo: false
+x = seq(1, 3, length.out=100)
+plot(x, log(x, 2), type="l", col="blue", lwd=2, xlab="x", ylab="y")
+lines(x, log(x), col="red", lwd=2)
+legend("topleft", legend=c(expression(log[2](x)), expression(log(x))), col=c("blue", "red"), lwd=2)
+```
+````
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-bloques-codigo-r.html" width="780" height="600">
+:::
+
+## Julia
+
+El siguiente código fuente
+
+```` markdown
+---
+title: Bloques de código en Julia
+lang: es
+---
+
+La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.
+
+```{{julia}}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales
+#| fig-align: left
+
+using Plots, LaTeXStrings
+f(x) = 2^x
+g(x) = exp(x)
+plot(f, 0, 3, label=L"$2^x$")
+plot!(g, label=L"$e^x$")
+```
+
+La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.
+
+```{{julia}}
+#| label: fig-logaritmicas
+#| fig-cap: Funciones logarítmicas
+#| echo: false
+
+using Plots, LaTeXStrings
+f(x) = log2(x)
+g(x) = log(x)
+plot(f, 1, 10, label=L"$\log_2(x)$")
+plot!(g, label=L"$\ln(x)$")
+```
+````
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-bloques-codigo-julia.html" width="780" height="600">
+:::
+
+:::
+:::
+
+## Bloques resaltados
+
+Quarto permite resaltar bloques de texto o código en el documento final utilizando la sintaxis 
+
+``` markdown
+::: {.callout-nombre}
+Texto
+:::
+```
+
+donde `nombre` es el tipo de bloque, que puede ser:
+
+-  `note`: Bloque de nota.
+-  `tip`: Bloque de consejo.
+-  `warning`: Bloque de advertencia.
+-  `important`: Bloque de importancia.
+-  `caution`: Bloque de precaución.
+
+
+La apariencia de los bloques se puede personalizar mediante las siguientes opciones de configuración.
+
+-  `appearance=apariencia`: Apariencia del bloque, que puede ser `default` (muestra el encabezado coloreado y con un icono), `simple` (muestra el encabezado sin color pero con icono), `minimal` (muestra solo el texto del bloque sin encabezado).
+-  `icon=false`: No muestra el icono en el encabezado.
+-  `collapse=true`: Solo se muestra el encabezado del bloque pero el usuario puede desplegar el cuerpo del bloque haciendo clic en el encabezado.
+
+También es posible asociar una etiqueta con un identificador único a cada bloque resaltado para poder referenciarlo en el texto del documento. Dependiendo del tipo de bloque la etiqueta debe tener los siguientes prefijos: `#nte-` para bloques de nota, `#tip-` para bloques de consejo, `#wrn-` para bloques de advertencia, `#imp-` para bloques de importancia, `cau-` para bloques de precaución.
+
+::: {#exm-bloques-resaltados}
+El siguiente código fuente
+
+``` markdown
+---
+title: Bloques resaltados
+lang: es
+---
+
+:::{.callout-note}
+## Bloque de Nota
+Este es un bloque de nota.
+:::
+
+:::{.callout-tip appearance="simple"}
+## Bloque de Consejo
+Este es un bloque de consejo con apariencia simple.
+:::
+
+:::{.callout-warning appearance="minimal"}
+## Bloque de Advertencia
+Este es un bloque de advertencia con apariencia mínimo.
+:::
+
+:::{.callout-important collapse="true"}
+## Bloque de Importancia
+Este es un bloque de importancia colapsado.
+:::
+
+:::{.callout-caution icon="false"}
+## Bloque de Precaución
+Este es un bloque de precaución sin icono.
+:::
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-bloques-resaltados.html" width="780" height="600">
+:::
+:::
+
+## Entornos matemáticos
+
+Quarto permite crear entornos matemáticos para enunciados como teoremas, definiciones, ejemplos, ejercicios etc. Para ello se utiliza un bloque con la siguiente sintaxis
+
+``` markdown
+:::{#entorno-etiqueta}
+Texto
+:::
+```
+
+donde `entorno` es el tipo de entorno, que puede ser `thm` para teoremas, `cor` para corolarios, `prp` para proposiciones, `def` para definiciones, `exm` para ejemplos, `exr` para ejercicios, `sol` o `rem` para observaciones.
+Junto al entorno hay que añadir una etiqueta con un identificador único para poder referenciarlo en el texto del documento.
+
+Para demostraciones existe un entorno especial con la siguiente sintaxis
+
+``` markdown
+:::{.proof}
+Texto
+:::
+```
+
+::: {#exm-entornos-matematicos}
+El siguiente código fuente
+
+``` markdown
+---
+title: Entornos matemáticos
+lang: es
+---
+
+El siguiente teorema es uno de los teoremas más famosos de las Matemáticas.
+
+:::{#thm-pitagoras}
+## Pitágoras
+En un triángulo rectángulo con catetos $a$ y $b$ y hipotenusa $c$, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos,
+
+$$
+c^2 = a^2 + b^2.
+$$
+:::
+
+:::{#exr-pitagoras}
+Calcula la hipotenusa del un triángulo rectángulo con catetos de longitud 3 y 4.
+:::
+
+:::{#sol-pitagoras}
+Aplicando el teorema @thm-pitagoras, obtenemos
+
+$$
+c^2 = 3^2 + 4^2 = 9 + 16 = 25,
+$$
+
+de donde se sigue que $c = \sqrt{25}=5$.
+:::
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-entornos-matematicos.html" width="780" height="510">
+:::
+:::
+
+## Referencias Cruzadas
+
+Quarto permite referenciar casi cualquier elemento de los que hemos visto hasta ahora en el texto del documento, como secciones, figuras, tablas, bloques de código, bloques resaltados, entornos matemáticos, etc, siempre y cuando tengan asociada una etiqueta con un identificador único. Para etiquetar un elemento se utiliza la sintaxis `{#tipo-etiqueta}`, mientras que para referenciarlo se utiliza la sintaxis `@tipo-etiqueta`,  donde `etiqueta` es el identificador único del elemento y `tipo` es el tipo de elemento, que puede ser `sec` para secciones, `eq` para ecuaciones, `thm` para teoremas, `def` para definiciones, etc.
+
+::: {#exm-referencias-cruzadas}
+El siguiente código fuente
+
+```` markdown
+---
+title: Referencias cruzadas
+lang: es
+---
+
+## Funciones trigonométricas {#sec-trigonometria}
+
+Las funciones trigonométricas básicas se definen a través de las relaciones entre los lados de un triángulo rectángulo.
+
+:::{#def-coseno}
+## Coseno
+En un triángulo rectángulo con cateto adyacente $a$, cateto opuesto $b$ y hipotenusa $c$, el coseno del ángulo $\theta$ entre el cateto adyacente y la hipotenusa, se define como el cociente entre el cateto adyacente a $\theta$ y la hipotenusa,
+
+$$
+\cos(\theta) = \frac{a}{c}.
+$$ {#eq-coseno}
+:::
+
+```{{julia}}
+#| label: fig-coseno
+#| fig-cap: Gráfica de la función coseno.
+using Plots, LaTeXStrings
+plot(cos, 0, 2pi, label=L"\cos(x)")
+```
+
+La figura @fig-coseno muestra la gráfica de la función coseno (ver @def-coseno de la sección @sec-trigonometria).
+````
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-referencias-cruzadas.html" width="780" height="800">
+:::
+:::
+
+## Bibliografía y referencias bibliográficas
+
+Quarto utiliza [Pandoc](https://pandoc.org/) para generar citas y referencias bibliográficas en el documento final. Para ello, lo primero es disponer de una base de datos con las referencias bibliográficas en formato `BibLaTeX` o `BibTeX` con extensión `.bib`. Este es el mismo formato que se utiliza en las referencias bibliográficas en LaTeX, y muchos gestores bibliográficos como [Zotero](https://www.zotero.org/) o [Mendeley](https://www.mendeley.com/) permiten exportar las referencias bibliográficas en este formato.
+
+La base de datos con las referencias bibliográficas se especifica en el encabezado YAML del documento con la propiedad `bibliography: fichero.bib`.
+
+Para citar una referencia bibliográfica en el texto del documento se utiliza la sintaxis `[@referencia]`, donde `referencia` es el identificador de la referencia bibliográfica en la base de datos. Si se quiere citar varias referencias bibliográficas a la vez se utiliza la sintaxis `[@referencia1; @referencia2; @referencia3]`.
+
+Por último, también se puede especificar el formato de la bibliografía en el documento final con la propiedad `cls: estilo`, donde `estilo` es el estilo de la bibliografía en formato [CLS](https://citationstyles.org/) (citation style language). Por defecto, se utiliza el estilo [Chicago](https://www.chicagomanualofstyle.org/home.html) pero pueden utilizarse otros estilos como los que aparecen en el [repositorio de estilos CLS](https://github.com/citation-style-language/styles).
+
+::: {#exm-referencias-bibliograficas}
+El siguiente código fuente
+
+``` markdown
+---
+title: Referencias bibliográficas
+bibliography: bibliografia.bib
+cls: apa.cls
+lang: es
+---
+
+Bienvenidos a este tutorial de **Quarto** (desarrollado por @quarto2024).
+
+Quarto está especialmente diseñado para elaborar documentos
+científicos y técnicos reproducibles [ver @knuth1984].
+```
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-referencias-bibliograficas.html" width="780" height="400">
+:::
+:::
+

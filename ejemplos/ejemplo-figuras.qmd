@@ -1,0 +1,15 @@
+---
+title: Figuras
+---
+
+Ejemplo de imagen original.
+
+![Logotipo de Quarto](img/logo-quarto.png)
+
+Ejemplo de imagen escalada a 200 pixels de ancho y alineada a la izquierda. 
+
+![Logotipo de Quarto](img/logo-quarto.png){width=200 fig-align="left"}
+
+Ejemplo de imagen escalada a 200 pixels de ancho y alto, y alineada a la derecha.
+
+![Logotipo de Quarto](img/logo-quarto.png){width=200 height=200 fig-align="right"}

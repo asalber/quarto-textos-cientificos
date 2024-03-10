@@ -1,0 +1,29 @@
+---
+title: Bloques resaltados
+lang: es
+---
+
+:::{.callout-note}
+## Bloque de Nota
+Este es un bloque de nota.
+:::
+
+:::{.callout-tip appearance="simple"}
+## Bloque de Consejo
+Este es un bloque de consejo con apariencia simple.
+:::
+
+:::{.callout-warning appearance="minimal"}
+## Bloque de Advertencia
+Este es un bloque de advertencia con apariencia mínimo.
+:::
+
+:::{.callout-important collapse="true"}
+## Bloque de Importancia
+Este es un bloque de importancia colapsado.
+:::
+
+:::{.callout-caution icon="false"}
+## Bloque de Precaución
+Este es un bloque de precaución sin icono.
+:::

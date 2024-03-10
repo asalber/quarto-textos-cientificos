@@ -1,0 +1,5 @@
+---
+title: Énfasis
+---
+
+En markdown puedes escribir texto en _cursiva_ o en **negrita**.

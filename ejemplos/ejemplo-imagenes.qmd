@@ -1,0 +1,9 @@
+---
+title: Imágenes
+---
+
+Ejemplo de imagen en línea ![Logotipo de Quarto](img/logo-quarto.png)
+
+Ejemplo de imagen desplegada
+
+![Logotipo de Quarto](img/logo-quarto.png)

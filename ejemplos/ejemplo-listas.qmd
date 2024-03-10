@@ -1,0 +1,17 @@
+---
+title: Listas
+---
+
+Ejemplo de lista no ordenada:
+
+-  Un item.
+-  Otro item.
+   -  Un subitem.
+   -  Otro subitem.
+
+Ejemplo de lista ordenada:
+
+1.  Primer item.
+2.  Segundo item.
+    a.  Primer subitem.
+    b.  Segundo subitem.

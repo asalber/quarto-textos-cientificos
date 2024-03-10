@@ -1,0 +1,29 @@
+---
+title: Entornos matemáticos
+lang: es
+---
+
+El siguiente teorema es uno de los teoremas más famosos de las Matemáticas.
+
+:::{#thm-pitagoras}
+## Pitágoras
+En un triángulo rectángulo con catetos $a$ y $b$ y hipotenusa $c$, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos,
+
+$$
+c^2 = a^2 + b^2.
+$$
+:::
+
+:::{#exr-pitagoras}
+Calcula la hipotenusa del un triángulo rectángulo con catetos de longitud 3 y 4.
+:::
+
+:::{#sol-pitagoras}
+Aplicando el teorema @thm-pitagoras, obtenemos
+
+$$
+c^2 = 3^2 + 4^2 = 9 + 16 = 25,
+$$
+
+de donde se sigue que $c = \sqrt{25}=5$.
+:::
