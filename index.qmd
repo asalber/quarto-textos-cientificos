@@ -22,7 +22,7 @@ lang: es
 
 [Quarto](https://quarto.org/) es un sistema moderno de creación de documentos dinámicos, informes, presentaciones, libros, sitios web y más, a partir de archivos de texto plano y por medio del conversor universal de documentos [Pandoc](https://pandoc.org/).
 
-![Logotipo de Quarto](/img/logos/logo-quarto.png)
+![Logotipo de Quarto](img/logos/logo-quarto.png)
 
 Se puede decir que Quarto es una evolución de los sistemas de autoría como [Jupyter](https://jupyter.org/), [R Markdown](https://rmarkdown.rstudio.com/) y otros, ya que extiende las capacidades de estos sistemas permitiendo a los usuarios trabajar con múltiples lenguajes de programación como [Python](https://www.python.org/), [R](https://www.r-project.org/), [Julia](https://julialang.org/), y [Observable JavaScript](https://observablehq.com/@observablehq/observable-javascript), todo dentro del mismo documento. Esto lo convierte en una poderosa herramienta para la creación de informes de análisis de datos, documentación de proyectos de software, artículos científicos e incluso libros. Está especialmente diseñado para elaborar documentos técnicos y científicos [reproducibles](https://en.wikipedia.org/wiki/Reproducibility).
 
@@ -46,7 +46,7 @@ Quarto ha sido desarrollado y es mantenido por [Posit](https://posit.co/) (antig
 
 ## Instalación
 
-Quarto puede descargarse desde el [sitio web de Quart](https://quarto.org/docs/get-started/). Existen versiones para Windows, macOS y Linux, así como una versión basada en Docker para aquellos que prefieren trabajar con contenedores.
+Quarto puede descargarse desde el [sitio web de Quarto](https://quarto.org/docs/get-started/). Existen versiones para Windows, macOS y Linux, así como una versión basada en Docker para aquellos que prefieren trabajar con contenedores.
 
 Aunque se puede utilizar desde la línea de comandos, es recomendable instalarlo en un entorno de desarrollo integrado (IDE) como [RStudio](https://www.rstudio.com/products/rstudio/download/), [Visual Studio Code](https://code.visualstudio.com/), o [Jupyter Notebooks](https://jupyter.org/). Estos IDEs ofrecen una interfaz gráfica para trabajar con Quarto, lo que facilita la creación y edición de documentos.
 
@@ -70,7 +70,7 @@ El proceso de creación de un documento con Quarto consta de los siguientes paso
 
     -   **Bloques de código**. Son bloques de código de diferentes lenguajes de programación, como [Python](https://www.python.org/), [R](https://www.r-project.org/), [Julia](https://julialang.org/) y [Observable JavaScript](https://observablehq.com/@observablehq/observable-javascript), que se incluyen en el cuerpo del documento y que pueden ser ejecutados durante el proceso de compilación del documento para generar resultados en el documento final.
 
-    -   **Bibliografía**. Se escribe en formato [BibTeX](https://es.wikipedia.org/wiki/BibTeX) y en ella se incluyen las ref erencias bibliográficas que se citan en el cuerpo del documento.
+    -   **Bibliografía**. Se escribe en formato [BibTeX](https://es.wikipedia.org/wiki/BibTeX) y en ella se incluyen las referencias bibliográficas que se citan en el cuerpo del documento.
 
     ::: {#exm-fichero-fuente}
     El siguiente es un ejemplo de un fichero fuente de Quarto con nombre `introduccion.qmd`, que incluye el encabezado, el cuerpo, un bloque de código en el lenguaje R y la bibliografía de un sencillo documento.
@@ -80,7 +80,7 @@ El proceso de creación de un documento con Quarto consta de los siguientes paso
     title: "Una introducción a Quarto" # <1>
     author: "Alfredo Sánchez Alberca" # <1>
     date: "2024-02-29" # <1>
-    output: html # <1>
+    format: html # <1>
     bibliography: bibliografia.bib # <1>
     cls: apa.cls # <1>
     lang: es # <1>
