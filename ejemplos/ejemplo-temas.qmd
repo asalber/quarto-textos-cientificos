@@ -1,0 +1,20 @@
+---
+title: "Una introducción a Quarto"
+author: "Alfredo Sánchez Alberca"
+date: "2024-02-29"
+output: html
+bibliography: bibliografia.bib
+theme: darkly
+lang: es
+---
+
+Bienvenidos a este tutorial de **Quarto**.
+
+Quarto está especialmente diseñado para elaborar documentos
+científicos y técnicos reproducibles (ver @knuth84), y permite incluir código 
+como el de más abajo.
+
+```{r} 
+x <- rnorm(100) 
+hist(x)
+```

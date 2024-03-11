@@ -83,6 +83,7 @@ El proceso de creación de un documento con Quarto consta de los siguientes paso
     output: html # <1>
     bibliography: bibliografia.bib # <1>
     cls: apa.cls # <1>
+    lang: es # <1>
     --- # <1>
 
     Bienvenidos a este tutorial de **Quarto**. # <2>
@@ -848,3 +849,41 @@ produce el siguiente resultado:
 :::
 :::
 
+## Temas
+
+Quarto permite personalizar la apariencia del documento final mediante temas, especialmente cuando el documento de salida de HTML. Un tema es un conjunto de estilos que se aplican al documento final para cambiar la tipografía, los colores, los márgenes, el espaciado, etc. Quarto incluye 25 [temas predefinidos](https://quarto.org/docs/output-formats/html-themes.html), pero también es posible crear temas personalizados mediante hojas de estilo en cascada (CSS).
+
+Para aplicar un tema al documento final hay que añadir al encabezado YAML la propiedad `theme: nombre`, donde `nombre` es el nombre del tema o bien la ruta al fichero CSS del tema personalizado.
+
+::: {#exm-temas}
+El siguiente código fuente
+
+```` markdown
+---
+title: "Una introducción a Quarto"
+author: "Alfredo Sánchez Alberca"
+date: "2024-02-29"
+output: html
+bibliography: bibliografia.bib
+theme: darkly
+lang: es
+---
+
+Bienvenidos a este tutorial de **Quarto**.
+
+Quarto está especialmente diseñado para elaborar documentos
+científicos y técnicos reproducibles (ver @knuth84), y permite incluir código 
+como el de más abajo.
+
+```{{r}}
+x <- rnorm(100) 
+hist(x)
+```
+````
+
+produce el siguiente resultado:
+
+::: {.callout-note title="Resultado"}  
+  <embed type="text/html" src="ejemplos/ejemplo-temas.html" width="780" height="600">
+:::
+:::
