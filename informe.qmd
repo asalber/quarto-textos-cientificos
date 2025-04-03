@@ -1,0 +1,84 @@
+---
+title: "Memoria del proyecto X"
+author: "Alfredo Sánchez"
+date: "2024-03-11"
+format: html
+lang: es
+---
+
+# Sección
+
+## Subsección
+
+Texto de la _subsección_.
+
+### Subsubsección
+
+Texto de la **subsubsección**.
+
+- Elemento 1
+  - Elemento 2
+- Elemento 3
+- Elemento 4
+
+1. Elemento 1
+2. Elemento 2
+   a. Subelemento 1
+   a. Subelemento 2
+3. Elemento 3
+
+
+| Nombre | Ciudad    | Edad |
+|:------ |:---------:| ----:|
+| María  | Valencia  |  22  |
+| Juan   | Madrid    |  50  |
+| Carmen | Barcelona |  35  |
+
+
+![Logo de Quarto](img/logos/logo-quarto.png){#fig-logo width=200 fig-align="left"}
+
+$$
+\int_a^b \frac{x^2}{x+1}\, dx
+$$
+
+En la figura @fig-logo se muestra el logo de Quarto.
+
+
+```{julia}
+#| label: fig-exponenciales
+#| fig-cap: Funciones exponenciales
+#| fig-align: left
+
+using Plots, LaTeXStrings
+f(x) = 2^x
+g(x) = exp(x)
+plot(f, 0, 3, label=L"$2^x$")
+plot!(g, label=L"$e^x$")
+```
+
+
+
+El siguiente teorema es uno de los teoremas más famosos de las Matemáticas.
+
+:::{#thm-pitagoras}
+## Pitágoras
+En un triángulo rectángulo con catetos $a$ y $b$ y hipotenusa $c$, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos,
+
+$$
+c^2 = a^2 + b^2.
+$$
+:::
+
+:::{#exr-pitagoras}
+Calcula la hipotenusa del un triángulo rectángulo con catetos de longitud 3 y 4.
+:::
+
+:::{#sol-pitagoras}
+Aplicando el teorema @thm-pitagoras, obtenemos
+
+$$
+c^2 = 3^2 + 4^2 = 9 + 16 = 25,
+$$
+
+de donde se sigue que $c = \sqrt{25}=5$.
+:::

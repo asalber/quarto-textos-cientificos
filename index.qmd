@@ -191,7 +191,7 @@ produce el siguiente resultado:
 
 ### Listas
 
-Para crear listas no ordenadas en Markdown $se utiliza el guion `-` o el asterisco `*` al principio de cada elemento de la lista, y para crear listas ordenadas se utiliza el número seguido de un punto `1.` al principio de cada elemento de la lista. Independientemente del número que se ponga, Markdown se encarga automáticamente de numerar los elementos de la lista.
+Para crear listas no ordenadas en Markdown se utiliza el guion `-` o el asterisco `*` al principio de cada elemento de la lista, y para crear listas ordenadas se utiliza el número seguido de un punto `1.` al principio de cada elemento de la lista. Independientemente del número que se ponga, Markdown se encarga automáticamente de numerar los elementos de la lista.
 
 Las listas pueden ser anidadas, es decir, una lista puede contener otra lista. Para ello los items de la sublista *deben estar indentados con 4 espacios*.
 
@@ -263,7 +263,11 @@ produce el siguiente resultado:
 
 ### Imágenes
 
-Para insertar imágenes en Markdown se utiliza la sintaxis `![Texto alternativo](ruta-imagen)`, donde `Texto alternativo` es el texto que se muestra si la imagen no se puede cargar, y `ruta-imagen` es la ruta al archivo de imagen. 
+Para insertar imágenes en Markdown se utiliza la sintaxis 
+
+> `![Texto alternativo](ruta-imagen)`
+    
+donde `Texto alternativo` es el texto que se muestra si la imagen no se puede cargar, y `ruta-imagen` es la ruta al archivo de imagen. 
 
 Si este código se introduce dentro de un párrafo la imagen se coloca en línea con el texto del párrafo, mientras que si se coloca en una línea aparte la imagen se muestra desplegada. En este último caso, las imágenes se muestran centradas por defecto.
 
@@ -292,7 +296,15 @@ produce el siguiente resultado:
 
 ### Fórmulas matemáticas
 
-Markdown permite incluir fórmulas matemáticas en el texto del documento utilizando la sintaxis de [LaTeX](https://es.wikipedia.org/wiki/LaTeX), que es un sistema de composición de textos especializado en la producción de documentos científicos y técnicos.[^1] Para incluir fórmulas matemáticas en línea dentro de un párrafo se utiliza la sintaxis `$ fórmula $`, y para incluir la fórmula desplegada se utiliza la sintaxis `$$ fórmula $$` para incluir la fórmula desplegada.
+Markdown permite incluir fórmulas matemáticas en el texto del documento utilizando la sintaxis de [LaTeX](https://es.wikipedia.org/wiki/LaTeX), que es un sistema de composición de textos especializado en la producción de documentos científicos y técnicos.[^1] Para incluir fórmulas matemáticas en línea dentro de un párrafo se utiliza la sintaxis 
+
+> `$ fórmula $`
+ 
+y para incluir la fórmula desplegada se utiliza la sintaxis 
+
+> `$$ fórmula $$`
+
+para incluir la fórmula desplegada.
 
 [^1]: La sintaxis de LaTeX para las fórmulas matemáticas se basa en la sintaxis de MathJax, que es un motor de representación de fórmulas matemáticas en HTML y que es compatible con la sintaxis de LaTeX, pero solo admite un subconjunto de las funcionalidades de LaTeX.
 
@@ -324,9 +336,17 @@ produce el siguiente resultado:
 Para incluir figuras en un documento Quarto se utiliza la misma sintaxis
 que para las imágenes en Markdown, pero Quarto amplia las capacidades de Markdown permitiendo escalar y alinear la imagen, además de añadir un pie de figura con el texto alternativo de la imagen.
 
-Para cambiar el tamaño de la imagen se utiliza la sintaxis `![Texto alternativo](ruta-imagen){width=w heigth=h}`, donde `w` indica que la imagen `w` es la anchura de la imagen y `h` es la altura. Si solo se especifica la anchura, la altura se ajusta automáticamente para mantener la relación de aspecto, y al revés. Tanto la anchura como la altura se pueden especificar en pixeles, centímetros o porcentaje.
+Para cambiar el tamaño de la imagen se utiliza la sintaxis 
 
-Para alinear la imagen se utiliza la sintaxis `![Texto alternativo](ruta-imagen){fig-align="alineacion"}`, donde `alineacion` puede ser `left` para alinear a la izquierda, `right` para alinear a la derecha. Si no se especifica la alineación, la imagen se muestra centrada por defecto.
+> `![Texto alternativo](ruta-imagen){width=w heigth=h}`
+ 
+donde `w` es la anchura de la imagen y `h` es la altura. Si solo se especifica la anchura, la altura se ajusta automáticamente para mantener la relación de aspecto, y al revés. Tanto la anchura como la altura se pueden especificar en pixeles, centímetros o porcentaje.
+
+Para alinear la imagen se utiliza la sintaxis 
+
+> `![Texto alternativo](ruta-imagen){fig-align="alineacion"}`
+ 
+donde `alineacion` puede ser `left` para alinear a la izquierda, `right` para alinear a la derecha. Si no se especifica la alineación, la imagen se muestra centrada por defecto.
 
 ::: {#exm-figuras}
 El siguiente código fuente
@@ -400,15 +420,14 @@ produce el siguiente resultado:
 :::
 :::
 
-Para poder referenciar una figura en el texto del documento, hay que etiquetarla añadiendo `{#fig-etiqueta}` al final de la sintaxis de la figura,donde `etiqueta`es el identificador único de la figura. Una vez etiquetada, la figura se puede referenciar en el texto del documento utilizando la etiqueta con la sintaxis `@fig-etiqueta`.
+Para poder referenciar una figura en el texto del documento, hay que etiquetarla añadiendo `{#fig-etiqueta}` al final de la sintaxis de la figura, donde `etiqueta`es el identificador único de la figura. Una vez etiquetada, la figura se puede referenciar en el texto del documento utilizando la etiqueta con la sintaxis `@fig-etiqueta`.
 
 Quarto permite organizar varias figuras en columnas o filas añadiendo bloques de disposición en columnas o filas. Para una disposición en columnas se utiliza el bloque 
 
-``` markdown
-::: {layout-ncol=num} 
+> `::: {layout-ncol=num}`  
+> `Contenido columnas`  
+> `:::`
 
-:::
-```
 donde `num` es el número de columnas.
 
 ::: {#exm-figuras-columnas}
@@ -445,11 +464,10 @@ Una de las características que más potencial le dan a Quarto es la posibilidad
 
 Para crear un bloque de código en Quarto se utiliza la sintaxis 
 
-````markdown
-```{lenguaje}
-código
-```
-````
+> ` ```{lenguaje} `  
+> `Código fuente`   
+> ` ``` `
+
 donde `lenguaje` es el lenguaje de programación del bloque de código.
 
 Se puede configurar el resultado de la ejecución del bloque de código en el documento final mediante comentarios especiales al comienzo del bloque de código. Los comentarios de configuración comienzan on los caracteres `#|` y los más comunes son:
@@ -644,11 +662,9 @@ produce el siguiente resultado:
 
 Quarto permite resaltar bloques de texto o código en el documento final utilizando la sintaxis 
 
-``` markdown
-::: {.callout-nombre}
-Texto
-:::
-```
+> `::: {.callout-nombre}`  
+> `Texto`  
+> `:::`
 
 donde `nombre` es el tipo de bloque, que puede ser:
 
@@ -713,22 +729,18 @@ produce el siguiente resultado:
 
 Quarto permite crear entornos matemáticos para enunciados como teoremas, definiciones, ejemplos, ejercicios etc. Para ello se utiliza un bloque con la siguiente sintaxis
 
-``` markdown
-:::{#entorno-etiqueta}
-Texto
-:::
-```
+> `:::{#entorno-etiqueta}`  
+> `Texto del enunciado`  
+> `:::`
 
 donde `entorno` es el tipo de entorno, que puede ser `thm` para teoremas, `cor` para corolarios, `prp` para proposiciones, `def` para definiciones, `exm` para ejemplos, `exr` para ejercicios, `sol` o `rem` para observaciones.
 Junto al entorno hay que añadir una etiqueta con un identificador único para poder referenciarlo en el texto del documento.
 
 Para demostraciones existe un entorno especial con la siguiente sintaxis
 
-``` markdown
-:::{.proof}
-Texto
-:::
-```
+> `:::{.proof}`  
+> `Texto de la demostración`  
+> `:::`
 
 ::: {#exm-entornos-matematicos}
 El siguiente código fuente
