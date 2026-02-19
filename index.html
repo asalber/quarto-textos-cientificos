@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.6">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,8 +23,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -60,22 +61,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-6c21014d9765ba549c6ebad95917e4d7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-d0a9048d95e02c7ff9c82715fd5ddea4.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-79912ce8028e1efe7c0b985ea614e92f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="index_files/libs/bootstrap/bootstrap-dark-d7a88a546168d8387e6a3516c26f5597.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="index_files/libs/bootstrap/bootstrap-6e5ff12f349f7d7ee99023e5a7f49be9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-dark-1c59215f878e034bd7426c637fa661ac.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="index_files/libs/bootstrap/bootstrap-6e5ff12f349f7d7ee99023e5a7f49be9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body>
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -119,6 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 </div>
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -193,6 +360,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="instalación">Instalación</h2>
 <p>Quarto puede descargarse desde el <a href="https://quarto.org/docs/get-started/">sitio web de Quarto</a>. Existen versiones para Windows, macOS y Linux, así como una versión basada en Docker para aquellos que prefieren trabajar con contenedores.</p>
 <p>Aunque se puede utilizar desde la línea de comandos, es recomendable instalarlo en un entorno de desarrollo integrado (IDE) como <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, o <a href="https://jupyter.org/">Jupyter Notebooks</a>. Estos IDEs ofrecen una interfaz gráfica para trabajar con Quarto, lo que facilita la creación y edición de documentos.</p>
+<p>Si vamos a generar documentos en formato <code>pdf</code> necesitamos instalar también una distribución de <code>TeX</code>. En Windows, se puede instalar <a href="https://miktex.org/download"><code>MiKTeX</code></a>, en macOS se puede instalar <a href="http://www.tug.org/mactex/"><code>MacTeX</code></a>, y en Linux se puede instalar <a href="https://www.tug.org/texlive/"><code>TeX Live</code></a>, aunque el método más sencillo es instala la distribución <code>TinyTex</code>, que es una versión reducida de <code>TeX Live</code>, mediante el comando</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">quarto</span> install tinytex</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>o bien</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sh number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">quarto</span> install tinytex <span class="at">--update-path</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>si queremos añadir <code>TinyTex</code> al <code>PATH</code> del sistema para poder utilizarlo desde la línea de comandos.</p>
 <section id="integración-con-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="integración-con-rstudio">Integración con RStudio</h3>
 <p>Las últimas versiones de RStudio ya reconocen los ficheros con extensión <code>*.qmd</code> como ficheros de código fuente de Quarto, lo que permite compilarlos a diferentes formatos con un solo clic, al igual que ocurre con los ficheros en formato R Markdown. Además, incorpora ayuda contextual y menús para facilitar la creación de elementos como tablas, figuras, referencias bibliográficas, etc.</p>
@@ -215,38 +387,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div id="exm-fichero-fuente" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 1</strong></span> El siguiente es un ejemplo de un fichero fuente de Quarto con nombre <code>introduccion.qmd</code>, que incluye el encabezado, el cuerpo, un bloque de código en el lenguaje R y la bibliografía de un sencillo documento.</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode numberSource code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1"></a>---</span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2"></a>title: "Una introducción a Quarto"</span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3"></a>author: "Alfredo Sánchez Alberca"</span>
-<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4"></a>date: "2024-02-29"</span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5"></a>format: html</span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6"></a>bibliography: bibliografia.bib</span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7"></a>cls: apa.cls</span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8"></a>lang: es</span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9"></a>---</span>
-<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-2-11" class="code-annotation-target"><a href="#annotated-cell-2-11"></a>Bienvenidos a este tutorial de **Quarto**.</span>
-<span id="annotated-cell-2-12"><a href="#annotated-cell-2-12"></a></span>
-<span id="annotated-cell-2-13"><a href="#annotated-cell-2-13"></a>Quarto está especialmente diseñado para elaborar documentos</span>
-<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14"></a>científicos y técnicos reproducibles [ver @knuth1984], y permite incluir código</span>
-<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15"></a>como el de más abajo.</span>
-<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3" onclick="event.preventDefault();" href="">3</a><span id="annotated-cell-2-17" class="code-annotation-target"><a href="#annotated-cell-2-17"></a>```{r}</span>
-<span id="annotated-cell-2-18"><a href="#annotated-cell-2-18"></a>x &lt;- rnorm(100)</span>
-<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19"></a>hist(x)</span>
-<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20"></a>```</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode numberSource code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode"><a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-4-1" class="code-annotation-target"><a href="#annotated-cell-4-1"></a>---</span>
+<span id="annotated-cell-4-2"><a href="#annotated-cell-4-2"></a>title: "Una introducción a Quarto"</span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3"></a>author: "Alfredo Sánchez Alberca"</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4"></a>date: "2024-02-29"</span>
+<span id="annotated-cell-4-5"><a href="#annotated-cell-4-5"></a>format: html</span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6"></a>bibliography: bibliografia.bib</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7"></a>cls: apa.cls</span>
+<span id="annotated-cell-4-8"><a href="#annotated-cell-4-8"></a>lang: es</span>
+<span id="annotated-cell-4-9"><a href="#annotated-cell-4-9"></a>---</span>
+<span id="annotated-cell-4-10"><a href="#annotated-cell-4-10"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-4-11" class="code-annotation-target"><a href="#annotated-cell-4-11"></a>Bienvenidos a este tutorial de **Quarto**.</span>
+<span id="annotated-cell-4-12"><a href="#annotated-cell-4-12"></a></span>
+<span id="annotated-cell-4-13"><a href="#annotated-cell-4-13"></a>Quarto está especialmente diseñado para elaborar documentos</span>
+<span id="annotated-cell-4-14"><a href="#annotated-cell-4-14"></a>científicos y técnicos reproducibles [ver @knuth1984], y permite incluir código</span>
+<span id="annotated-cell-4-15"><a href="#annotated-cell-4-15"></a>como el de más abajo.</span>
+<span id="annotated-cell-4-16"><a href="#annotated-cell-4-16"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();" href="">3</a><span id="annotated-cell-4-17" class="code-annotation-target"><a href="#annotated-cell-4-17"></a>```{r}</span>
+<span id="annotated-cell-4-18"><a href="#annotated-cell-4-18"></a>x &lt;- rnorm(100)</span>
+<span id="annotated-cell-4-19"><a href="#annotated-cell-4-19"></a>hist(x)</span>
+<span id="annotated-cell-4-20"><a href="#annotated-cell-4-20"></a>```</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="1,2,3,4,5,6,7,8,9" data-code-annotation="1">Encabezado YAML. Se delimita por tres guiones <code>---</code>. La línea 1 indica el título, la línea 2 el autor, la línea 3 la fecha, la línea 4 el formato de salida, la línea 5 el fichero de bibliografía y la línea 6 el estilo de la bibliografía.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="1,2,3,4,5,6,7,8,9" data-code-annotation="1">Encabezado YAML. Se delimita por tres guiones <code>---</code>. La línea 1 indica el título, la línea 2 el autor, la línea 3 la fecha, la línea 4 el formato de salida, la línea 5 el fichero de bibliografía y la línea 6 el estilo de la bibliografía.</span>
 </dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="11,13,14,15" data-code-annotation="2">Texto del documento en formato Markdown.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="11,13,14,15" data-code-annotation="2">Texto del documento en formato Markdown.</span>
 </dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="17,18,19" data-code-annotation="3">Bloque de código R.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="17,18,19" data-code-annotation="3">Bloque de código R.</span>
 </dd>
 </dl>
 </div></li>
@@ -265,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="exm-renderizado" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 2</strong></span> El siguiente comando realiza el renderizado del fichero fuente del ejemplo anterior al formato HTML.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">quarto</span> render introduccion.qmd</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">quarto</span> render introduccion.qmd</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p><strong>Visualización del documento</strong>. El último paso consiste en visualizar el documento final en un navegador web, en un visor de PDF, en un visor de documentos de Word, en un visor de presentaciones, dependiente del formato de salida. Algunos entornos de desarrollo como RStudio y VSCode permiten visualizar el documento final directamente en el entorno de desarrollo.</p>
 <div id="exm-visualizacion-documento-final" class="theorem example">
@@ -294,18 +466,18 @@ Resultado
 <p>Para crear encabezados de sección se utiliza el símbolo almohadilla <code>#</code>. El número de almohadillas indica el nivel de la subsección, es decir, una almohadilla indica una sección, dos una subsección, tres una subsubsección, y así sucesiavamente.</p>
 <div id="exm-encabezados" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 4</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> Encabezados de secciones</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">---</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu"># Sección</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>Sección de nivel 1.</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">## Subsección</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>Subsección de nivel 2.</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">### Subsubsección</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a>Subsubsección de nivel 3.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> Encabezados de secciones</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu"># Sección</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>Sección de nivel 1.</span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">## Subsección</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>Subsección de nivel 2.</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">### Subsubsección</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>Subsubsección de nivel 3.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -327,12 +499,12 @@ Resultado
 <p>Para crear texto en <em>cursiva</em> se utiliza el asterisco <code>*</code> o el guion bajo <code>_</code> al principio y al final del texto, y para crear texto en <em>negrilla</em> se utiliza dos asteriscos <code>**</code> o dos guiones bajos <code>__</code> al principio y al final del texto.</p>
 <div id="exm-enfasis" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 5</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> Énfasis</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">---</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>En markdown puedes escribir texto en _cursiva_ o en **negrita**.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> Énfasis</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>En markdown puedes escribir texto en _cursiva_ o en **negrita**.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -355,24 +527,24 @@ Resultado
 <p>Las listas pueden ser anidadas, es decir, una lista puede contener otra lista. Para ello los items de la sublista <em>deben estar indentados con 4 espacios</em>.</p>
 <div id="exm-listas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 6</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> Listas</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">---</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a></span>
-<span id="cb4-6"><a href="#cb4-6"></a>Ejemplo de lista no ordenada:</span>
-<span id="cb4-7"><a href="#cb4-7"></a></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="ss">-  </span>Un item.</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="ss">-  </span>Otro item.</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="ss">   -  </span>Un subitem.</span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="ss">   -  </span>Otro subitem.</span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a>Ejemplo de lista ordenada:</span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="ss">1.  </span>Primer item.</span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="ss">2.  </span>Segundo item.</span>
-<span id="cb4-17"><a href="#cb4-17"></a>    a.  Primer subitem.</span>
-<span id="cb4-18"><a href="#cb4-18"></a>    b.  Segundo subitem.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> Listas</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">---</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a>Ejemplo de lista no ordenada:</span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ss">-  </span>Un item.</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="ss">-  </span>Otro item.</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="ss">   -  </span>Un subitem.</span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="ss">   -  </span>Otro subitem.</span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a>Ejemplo de lista ordenada:</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="ss">1.  </span>Primer item.</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="ss">2.  </span>Segundo item.</span>
+<span id="cb6-17"><a href="#cb6-17"></a>    a.  Primer subitem.</span>
+<span id="cb6-18"><a href="#cb6-18"></a>    b.  Segundo subitem.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -397,18 +569,18 @@ Resultado
 <p>El cuerpo de la tabla se especifica en las filas siguientes.</p>
 <div id="exm-tablas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 7</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="an">title:</span><span class="co"> Tablas</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>Ejemplo de tabla con la primera columna alineada a la izquierda, la segunda centrada y la tercera alineada a la derecha.</span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="pp">|</span> Nombre <span class="pp">|</span> Ciudad    <span class="pp">|</span> Edad <span class="pp">|</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="pp">|:------</span> <span class="pp">|:---------:| ----:|</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="pp">|</span> María  <span class="pp">|</span> Valencia  <span class="pp">|</span>  22  <span class="pp">|</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="pp">|</span> Juan   <span class="pp">|</span> Madrid    <span class="pp">|</span>  50  <span class="pp">|</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="pp">|</span> Carmen <span class="pp">|</span> Barcelona <span class="pp">|</span>  35  <span class="pp">|</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> Tablas</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">---</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a>Ejemplo de tabla con la primera columna alineada a la izquierda, la segunda centrada y la tercera alineada a la derecha.</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="pp">|</span> Nombre <span class="pp">|</span> Ciudad    <span class="pp">|</span> Edad <span class="pp">|</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="pp">|:------</span> <span class="pp">|:---------:| ----:|</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="pp">|</span> María  <span class="pp">|</span> Valencia  <span class="pp">|</span>  22  <span class="pp">|</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="pp">|</span> Juan   <span class="pp">|</span> Madrid    <span class="pp">|</span>  50  <span class="pp">|</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="pp">|</span> Carmen <span class="pp">|</span> Barcelona <span class="pp">|</span>  35  <span class="pp">|</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -435,16 +607,16 @@ Resultado
 <p>Si este código se introduce dentro de un párrafo la imagen se coloca en línea con el texto del párrafo, mientras que si se coloca en una línea aparte la imagen se muestra desplegada. En este último caso, las imágenes se muestran centradas por defecto.</p>
 <div id="exm-imagenes" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 8</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="an">title:</span><span class="co"> Imágenes</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">---</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a>Ejemplo de imagen en línea <span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a>Ejemplo de imagen desplegada</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Imágenes</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a>Ejemplo de imagen en línea <span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a>Ejemplo de imagen desplegada</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -474,16 +646,16 @@ Resultado
 <p>para incluir la fórmula desplegada.</p>
 <div id="exm-formulas-matematicas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 9</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> Fórmulas matemáticas</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">---</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a>Este es un ejemplo de una fórmula en linea $\int_{a}^{b} \frac{x^2}{x+1}\, dx$. Y a continuación se muestra la misma fórmula desplegada</span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a>$$</span>
-<span id="cb7-9"><a href="#cb7-9"></a>\int_{a}^{b} \frac{x^2}{x+1}\, dx.</span>
-<span id="cb7-10"><a href="#cb7-10"></a>$$</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> Fórmulas matemáticas</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">---</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>Este es un ejemplo de una fórmula en linea $\int_{a}^{b} \frac{x^2}{x+1}\, dx$. Y a continuación se muestra la misma fórmula desplegada</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>$$</span>
+<span id="cb9-9"><a href="#cb9-9"></a>\int_{a}^{b} \frac{x^2}{x+1}\, dx.</span>
+<span id="cb9-10"><a href="#cb9-10"></a>$$</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -516,22 +688,22 @@ Resultado
 <p>donde <code>alineacion</code> puede ser <code>left</code> para alinear a la izquierda, <code>right</code> para alinear a la derecha. Si no se especifica la alineación, la imagen se muestra centrada por defecto.</p>
 <div id="exm-figuras" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 10</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> Figuras</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co">---</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a>Ejemplo de imagen original.</span>
-<span id="cb8-7"><a href="#cb8-7"></a></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a>Ejemplo de imagen escalada a 200 pixels de ancho y alineada a la izquierda. </span>
-<span id="cb8-11"><a href="#cb8-11"></a></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span>{width=200 fig-align="left"}</span>
-<span id="cb8-13"><a href="#cb8-13"></a></span>
-<span id="cb8-14"><a href="#cb8-14"></a>Ejemplo de imagen escalada a 200 pixels de ancho y alto, y alineada a la derecha.</span>
-<span id="cb8-15"><a href="#cb8-15"></a></span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span>{width=200 height=200 fig-align="right"}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="an">title:</span><span class="co"> Figuras</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">---</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>Ejemplo de imagen original.</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a>Ejemplo de imagen escalada a 200 pixels de ancho y alineada a la izquierda. </span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span>{width=200 fig-align="left"}</span>
+<span id="cb10-13"><a href="#cb10-13"></a></span>
+<span id="cb10-14"><a href="#cb10-14"></a>Ejemplo de imagen escalada a 200 pixels de ancho y alto, y alineada a la derecha.</span>
+<span id="cb10-15"><a href="#cb10-15"></a></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="al">![Logotipo de Quarto](img/logo-quarto.png)</span>{width=200 height=200 fig-align="right"}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -551,23 +723,23 @@ Resultado
 <p>Este comportamiento puede modificarse en el encabezado YAML del documento, especificando el formato de la imagen con la propiedad <code>default-image-extension = formato</code>.</p>
 <div id="exm-figuras-formatos" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 11</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="an">title:</span><span class="co"> Figuras en diferentes formatos</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="an">format:</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">    html:</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">        default-image-extension: svg</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">    pdf:</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">        default-image-extension: pdf</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">---</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a></span>
-<span id="cb9-11"><a href="#cb9-11"></a>Ejemplo de imagen en formato vectorial.</span>
-<span id="cb9-12"><a href="#cb9-12"></a></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="al">![Corazón](img/corazon)</span>{width=200}</span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-15"><a href="#cb9-15"></a>Ejemplo de imagen en formato mapa de bits.</span>
-<span id="cb9-16"><a href="#cb9-16"></a></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="al">![Corazón](img/corazon.png)</span>{width=200}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="an">title:</span><span class="co"> Figuras en diferentes formatos</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="an">format:</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">    html:</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">        default-image-extension: svg</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">    pdf:</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">        default-image-extension: pdf</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">---</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a></span>
+<span id="cb11-11"><a href="#cb11-11"></a>Ejemplo de imagen en formato vectorial.</span>
+<span id="cb11-12"><a href="#cb11-12"></a></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="al">![Corazón](img/corazon)</span>{width=200}</span>
+<span id="cb11-14"><a href="#cb11-14"></a></span>
+<span id="cb11-15"><a href="#cb11-15"></a>Ejemplo de imagen en formato mapa de bits.</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="al">![Corazón](img/corazon.png)</span>{width=200}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -603,21 +775,21 @@ Resultado
 <p>donde <code>num</code> es el número de columnas.</p>
 <div id="exm-figuras-columnas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 12</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">---</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="an">title:</span><span class="co"> Figuras en columnas</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">---</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a>Ejemplo de figuras en dos columnas.</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a>::: {layout-ncol=2}</span>
-<span id="cb10-9"><a href="#cb10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="al">![Corazón en formato SVG](img/corazon.svg)</span>{#fig-corazon-svg width=200}</span>
-<span id="cb10-11"><a href="#cb10-11"></a></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="al">![Corazón en formato PNG](img/corazon.png)</span>{#fig-corazon-png width=200}</span>
-<span id="cb10-13"><a href="#cb10-13"></a>:::</span>
-<span id="cb10-14"><a href="#cb10-14"></a></span>
-<span id="cb10-15"><a href="#cb10-15"></a>La figura @fig-corazon-svg está formato SVG, y la figura @fig-corazon-png está en formato PNG.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="an">title:</span><span class="co"> Figuras en columnas</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">---</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a>Ejemplo de figuras en dos columnas.</span>
+<span id="cb12-7"><a href="#cb12-7"></a></span>
+<span id="cb12-8"><a href="#cb12-8"></a>::: {layout-ncol=2}</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="al">![Corazón en formato SVG](img/corazon.svg)</span>{#fig-corazon-svg width=200}</span>
+<span id="cb12-11"><a href="#cb12-11"></a></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="al">![Corazón en formato PNG](img/corazon.png)</span>{#fig-corazon-png width=200}</span>
+<span id="cb12-13"><a href="#cb12-13"></a>:::</span>
+<span id="cb12-14"><a href="#cb12-14"></a></span>
+<span id="cb12-15"><a href="#cb12-15"></a>La figura @fig-corazon-svg está formato SVG, y la figura @fig-corazon-png está en formato PNG.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -656,7 +828,7 @@ Resultado
 <p>Existen otras opciones de configuración del resultado de la ejecución que dependen del lenguaje de programación del bloque de código.</p>
 <section id="bloques-de-código-en-python" class="level3">
 <h3 class="anchored" data-anchor-id="bloques-de-código-en-python">Bloques de código en Python</h3>
-<p>Los bloques de código en Python se renderizan por defecto con el kernel <code>pytho3</code> de <code>jupyter</code>. Conviene además tener instalado el paquete <code>jupyter-cache</code> para que los resultados de la ejecución de los bloques de código se guarden en caché y no se ejecuten de nuevo si no han cambiado.</p>
+<p>Los bloques de código en Python se renderizan por defecto con el kernel <code>python3</code> de <code>jupyter</code>. Conviene además tener instalado el paquete <code>jupyter-cache</code> para que los resultados de la ejecución de los bloques de código se guarden en caché y no se ejecuten de nuevo si no han cambiado.</p>
 </section>
 <section id="bloques-de-código-en-r" class="level3">
 <h3 class="anchored" data-anchor-id="bloques-de-código-en-r">Bloques de código en R</h3>
@@ -674,15 +846,15 @@ Resultado
 <section id="opciones-globales-de-configuración-de-la-ejecución" class="level3">
 <h3 class="anchored" data-anchor-id="opciones-globales-de-configuración-de-la-ejecución">Opciones globales de configuración de la ejecución</h3>
 <p>Estas opciones de configuración del resultado de la ejecución de los bloques de código se pueden especificar en el encabezado YAML del documento (sin los caracteres de comentario) para aplicarlas a todos los bloques de código del documento. Algunas opciones de configuración globales bastante útiles son:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">       # No muestra el código fuente en el documento final.</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="at">  </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">     # No muestra el resultado de la ejecución del código en el documento final.</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">      # No muestra los mensajes de error generados por la ejecución del código.</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">    # No muestra los mensajes de advertencia generados por la ejecución del código.</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="at">  </span><span class="fu">fig-width</span><span class="kw">:</span><span class="at"> ancho</span><span class="co">  # Ajusta la anchura de las figuras generadas por los bloques de código a ancho.</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="at">  </span><span class="fu">fig-height</span><span class="kw">:</span><span class="at"> alto</span><span class="co">  # Ajusta la altura de las figuras generadas por los bloques de código a alto.</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # Guarda en caché los resultados de la ejecución de los bloques de código.</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="at">  </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">     # Deshabilita la ejecución de los bloques de código.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">       # No muestra el código fuente en el documento final.</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="at">  </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">     # No muestra el resultado de la ejecución del código en el documento final.</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">      # No muestra los mensajes de error generados por la ejecución del código.</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">    # No muestra los mensajes de advertencia generados por la ejecución del código.</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="at">  </span><span class="fu">fig-width</span><span class="kw">:</span><span class="at"> ancho</span><span class="co">  # Ajusta la anchura de las figuras generadas por los bloques de código a ancho.</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="at">  </span><span class="fu">fig-height</span><span class="kw">:</span><span class="at"> alto</span><span class="co">  # Ajusta la altura de las figuras generadas por los bloques de código a alto.</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="at">  </span><span class="fu">cache</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # Guarda en caché los resultados de la ejecución de los bloques de código.</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="at">  </span><span class="fu">enable</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">     # Deshabilita la ejecución de los bloques de código.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="exm-bloques-codigo" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 13</strong></span> &nbsp;</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -690,44 +862,44 @@ Resultado
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>El siguiente código fuente</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">---</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="an">title:</span><span class="co"> Bloques de código en Python</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co">---</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a></span>
-<span id="cb12-6"><a href="#cb12-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.</span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="in">```{python}</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#| label: fig-exponenciales</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#| fig-cap: Funciones exponenciales</span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#| fig-align: left</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-15"><a href="#cb12-15"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
-<span id="cb12-16"><a href="#cb12-16"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb12-17"><a href="#cb12-17"></a>ax.plot(x, <span class="dv">2</span><span class="op">**</span>x, label<span class="op">=</span><span class="vs">r'$2^x$'</span>)</span>
-<span id="cb12-18"><a href="#cb12-18"></a>ax.plot(x, np.exp(x), label<span class="op">=</span><span class="vs">r'$e^x$'</span>)</span>
-<span id="cb12-19"><a href="#cb12-19"></a>ax.legend()</span>
-<span id="cb12-20"><a href="#cb12-20"></a>plt.show()</span>
-<span id="cb12-21"><a href="#cb12-21"></a><span class="in">```</span></span>
-<span id="cb12-22"><a href="#cb12-22"></a></span>
-<span id="cb12-23"><a href="#cb12-23"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
-<span id="cb12-24"><a href="#cb12-24"></a></span>
-<span id="cb12-25"><a href="#cb12-25"></a><span class="in">```{python}</span></span>
-<span id="cb12-26"><a href="#cb12-26"></a><span class="co">#| label: fig-logaritmicas</span></span>
-<span id="cb12-27"><a href="#cb12-27"></a><span class="co">#| fig-cap: Funciones logarítmicas</span></span>
-<span id="cb12-28"><a href="#cb12-28"></a><span class="co">#| echo: false</span></span>
-<span id="cb12-29"><a href="#cb12-29"></a></span>
-<span id="cb12-30"><a href="#cb12-30"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-31"><a href="#cb12-31"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-32"><a href="#cb12-32"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb12-33"><a href="#cb12-33"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb12-34"><a href="#cb12-34"></a>ax.plot(x, np.log2(x), label<span class="op">=</span><span class="vs">r'$\log_2(x)$'</span>)</span>
-<span id="cb12-35"><a href="#cb12-35"></a>ax.plot(x, np.log(x), label<span class="op">=</span><span class="vs">r'$\ln(x)$'</span>)</span>
-<span id="cb12-36"><a href="#cb12-36"></a>ax.legend()</span>
-<span id="cb12-37"><a href="#cb12-37"></a>plt.show()</span>
-<span id="cb12-38"><a href="#cb12-38"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="an">title:</span><span class="co"> Bloques de código en Python</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co">---</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.</span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="in">```{python}</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#| label: fig-exponenciales</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="co">#| fig-cap: Funciones exponenciales</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#| fig-align: left</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-15"><a href="#cb14-15"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb14-16"><a href="#cb14-16"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb14-17"><a href="#cb14-17"></a>ax.plot(x, <span class="dv">2</span><span class="op">**</span>x, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">2</span><span class="dv">^</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18"></a>ax.plot(x, np.exp(x), label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">e</span><span class="dv">^</span><span class="vs">x</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-19"><a href="#cb14-19"></a>ax.legend()</span>
+<span id="cb14-20"><a href="#cb14-20"></a>plt.show()</span>
+<span id="cb14-21"><a href="#cb14-21"></a><span class="in">```</span></span>
+<span id="cb14-22"><a href="#cb14-22"></a></span>
+<span id="cb14-23"><a href="#cb14-23"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
+<span id="cb14-24"><a href="#cb14-24"></a></span>
+<span id="cb14-25"><a href="#cb14-25"></a><span class="in">```{python}</span></span>
+<span id="cb14-26"><a href="#cb14-26"></a><span class="co">#| label: fig-logaritmicas</span></span>
+<span id="cb14-27"><a href="#cb14-27"></a><span class="co">#| fig-cap: Funciones logarítmicas</span></span>
+<span id="cb14-28"><a href="#cb14-28"></a><span class="co">#| echo: false</span></span>
+<span id="cb14-29"><a href="#cb14-29"></a></span>
+<span id="cb14-30"><a href="#cb14-30"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-31"><a href="#cb14-31"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-32"><a href="#cb14-32"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb14-33"><a href="#cb14-33"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb14-34"><a href="#cb14-34"></a>ax.plot(x, np.log2(x), label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">log_2</span><span class="kw">(</span><span class="vs">x</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-35"><a href="#cb14-35"></a>ax.plot(x, np.log(x), label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">ln</span><span class="kw">(</span><span class="vs">x</span><span class="kw">)</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-36"><a href="#cb14-36"></a>ax.legend()</span>
+<span id="cb14-37"><a href="#cb14-37"></a>plt.show()</span>
+<span id="cb14-38"><a href="#cb14-38"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -745,36 +917,36 @@ Resultado
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>El siguiente código fuente</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">---</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="an">title:</span><span class="co"> Bloques de código en R</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co">---</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a></span>
-<span id="cb13-6"><a href="#cb13-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda y escalada con anchura 5 y altura 4 pulgadas.</span>
-<span id="cb13-7"><a href="#cb13-7"></a></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="in">```{r}</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="co">#| label: fig-exponenciales</span></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#| fig-cap: Funciones exponenciales.</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="co">#| fig-align: left</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a><span class="co">#| fig-width: 5</span></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co">#| fig-height: 4</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out=</span><span class="dv">100</span>)</span>
-<span id="cb13-15"><a href="#cb13-15"></a><span class="fu">plot</span>(x, <span class="dv">2</span><span class="sc">^</span>x, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="fu">lines</span>(x, <span class="fu">exp</span>(x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb13-17"><a href="#cb13-17"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="fu">expression</span>(<span class="dv">2</span><span class="sc">^</span>x), <span class="fu">expression</span>(e<span class="sc">^</span>x)), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb13-18"><a href="#cb13-18"></a><span class="in">```</span></span>
-<span id="cb13-19"><a href="#cb13-19"></a></span>
-<span id="cb13-20"><a href="#cb13-20"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
-<span id="cb13-21"><a href="#cb13-21"></a></span>
-<span id="cb13-22"><a href="#cb13-22"></a><span class="in">```{r}</span></span>
-<span id="cb13-23"><a href="#cb13-23"></a><span class="co">#| label: fig-logaritmicas</span></span>
-<span id="cb13-24"><a href="#cb13-24"></a><span class="co">#| fig-cap: Funciones logarítmicas.</span></span>
-<span id="cb13-25"><a href="#cb13-25"></a><span class="co">#| echo: false</span></span>
-<span id="cb13-26"><a href="#cb13-26"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out=</span><span class="dv">100</span>)</span>
-<span id="cb13-27"><a href="#cb13-27"></a><span class="fu">plot</span>(x, <span class="fu">log</span>(x, <span class="dv">2</span>), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
-<span id="cb13-28"><a href="#cb13-28"></a><span class="fu">lines</span>(x, <span class="fu">log</span>(x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb13-29"><a href="#cb13-29"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="fu">expression</span>(log[<span class="dv">2</span>](x)), <span class="fu">expression</span>(<span class="fu">log</span>(x))), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb13-30"><a href="#cb13-30"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> Bloques de código en R</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">---</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda y escalada con anchura 5 y altura 4 pulgadas.</span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="in">```{r}</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#| label: fig-exponenciales</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="co">#| fig-cap: Funciones exponenciales.</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#| fig-align: left</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb15-14"><a href="#cb15-14"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out=</span><span class="dv">100</span>)</span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="fu">plot</span>(x, <span class="dv">2</span><span class="sc">^</span>x, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="fu">lines</span>(x, <span class="fu">exp</span>(x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="fu">expression</span>(<span class="dv">2</span><span class="sc">^</span>x), <span class="fu">expression</span>(e<span class="sc">^</span>x)), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="in">```</span></span>
+<span id="cb15-19"><a href="#cb15-19"></a></span>
+<span id="cb15-20"><a href="#cb15-20"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
+<span id="cb15-21"><a href="#cb15-21"></a></span>
+<span id="cb15-22"><a href="#cb15-22"></a><span class="in">```{r}</span></span>
+<span id="cb15-23"><a href="#cb15-23"></a><span class="co">#| label: fig-logaritmicas</span></span>
+<span id="cb15-24"><a href="#cb15-24"></a><span class="co">#| fig-cap: Funciones logarítmicas.</span></span>
+<span id="cb15-25"><a href="#cb15-25"></a><span class="co">#| echo: false</span></span>
+<span id="cb15-26"><a href="#cb15-26"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out=</span><span class="dv">100</span>)</span>
+<span id="cb15-27"><a href="#cb15-27"></a><span class="fu">plot</span>(x, <span class="fu">log</span>(x, <span class="dv">2</span>), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">"x"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
+<span id="cb15-28"><a href="#cb15-28"></a><span class="fu">lines</span>(x, <span class="fu">log</span>(x), <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb15-29"><a href="#cb15-29"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="fu">expression</span>(log[<span class="dv">2</span>](x)), <span class="fu">expression</span>(<span class="fu">log</span>(x))), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb15-30"><a href="#cb15-30"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -792,38 +964,38 @@ Resultado
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>El siguiente código fuente</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="an">title:</span><span class="co"> Bloques de código en Julia</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">---</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.</span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="in">```{julia}</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#| label: fig-exponenciales</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co">#| fig-cap: Funciones exponenciales</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#| fig-align: left</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a><span class="fu">f</span>(x) <span class="op">=</span> <span class="fl">2</span><span class="op">^</span>x</span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="fu">g</span>(x) <span class="op">=</span> <span class="fu">exp</span>(x)</span>
-<span id="cb14-16"><a href="#cb14-16"></a><span class="fu">plot</span>(f, <span class="fl">0</span>, <span class="fl">3</span>, label<span class="op">=</span>L<span class="st">"</span><span class="sc">$</span><span class="st">2^</span>x<span class="sc">$</span><span class="st">")</span></span>
-<span id="cb14-17"><a href="#cb14-17"></a>plot<span class="st">!(g, label=L"</span><span class="op">$</span>e<span class="op">^</span>x<span class="op">$</span><span class="st">")</span></span>
-<span id="cb14-18"><a href="#cb14-18"></a><span class="in">```</span></span>
-<span id="cb14-19"><a href="#cb14-19"></a></span>
-<span id="cb14-20"><a href="#cb14-20"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
-<span id="cb14-21"><a href="#cb14-21"></a></span>
-<span id="cb14-22"><a href="#cb14-22"></a><span class="in">```{julia}</span></span>
-<span id="cb14-23"><a href="#cb14-23"></a><span class="co">#| label: fig-logaritmicas</span></span>
-<span id="cb14-24"><a href="#cb14-24"></a><span class="co">#| fig-cap: Funciones logarítmicas</span></span>
-<span id="cb14-25"><a href="#cb14-25"></a><span class="co">#| echo: false</span></span>
-<span id="cb14-26"><a href="#cb14-26"></a></span>
-<span id="cb14-27"><a href="#cb14-27"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
-<span id="cb14-28"><a href="#cb14-28"></a><span class="fu">f</span>(x) <span class="op">=</span> <span class="fu">log2</span>(x)</span>
-<span id="cb14-29"><a href="#cb14-29"></a><span class="fu">g</span>(x) <span class="op">=</span> <span class="fu">log</span>(x)</span>
-<span id="cb14-30"><a href="#cb14-30"></a><span class="fu">plot</span>(f, <span class="fl">1</span>, <span class="fl">10</span>, label<span class="op">=</span>L<span class="st">"</span><span class="sc">$</span><span class="st">\</span>log_2<span class="st">(x)</span><span class="sc">$</span><span class="st">")</span></span>
-<span id="cb14-31"><a href="#cb14-31"></a>plot<span class="st">!(g, label=L"</span><span class="op">$</span><span class="fu">\ln</span>(x)<span class="op">$</span><span class="st">")</span></span>
-<span id="cb14-32"><a href="#cb14-32"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">---</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="an">title:</span><span class="co"> Bloques de código en Julia</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">---</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6"></a>La figura @fig-exponenciales contiene un ejemplo de funciones exponenciales alineada a la izquierda.</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="in">```{julia}</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#| label: fig-exponenciales</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#| fig-cap: Funciones exponenciales</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#| fig-align: left</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="fu">f</span>(x) <span class="op">=</span> <span class="fl">2</span><span class="op">^</span>x</span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="fu">g</span>(x) <span class="op">=</span> <span class="fu">exp</span>(x)</span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="fu">plot</span>(f, <span class="fl">0</span>, <span class="fl">3</span>, label<span class="op">=</span>L<span class="st">"</span><span class="sc">$</span><span class="st">2^</span>x<span class="sc">$</span><span class="st">")</span></span>
+<span id="cb16-17"><a href="#cb16-17"></a>plot<span class="st">!(g, label=L"</span><span class="op">$</span>e<span class="op">^</span>x<span class="op">$</span><span class="st">")</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="in">```</span></span>
+<span id="cb16-19"><a href="#cb16-19"></a></span>
+<span id="cb16-20"><a href="#cb16-20"></a>La figura @fig-logaritmicas contiene un ejemplo de funciones logarítmicas con código oculto.</span>
+<span id="cb16-21"><a href="#cb16-21"></a></span>
+<span id="cb16-22"><a href="#cb16-22"></a><span class="in">```{julia}</span></span>
+<span id="cb16-23"><a href="#cb16-23"></a><span class="co">#| label: fig-logaritmicas</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a><span class="co">#| fig-cap: Funciones logarítmicas</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a><span class="co">#| echo: false</span></span>
+<span id="cb16-26"><a href="#cb16-26"></a></span>
+<span id="cb16-27"><a href="#cb16-27"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
+<span id="cb16-28"><a href="#cb16-28"></a><span class="fu">f</span>(x) <span class="op">=</span> <span class="fu">log2</span>(x)</span>
+<span id="cb16-29"><a href="#cb16-29"></a><span class="fu">g</span>(x) <span class="op">=</span> <span class="fu">log</span>(x)</span>
+<span id="cb16-30"><a href="#cb16-30"></a><span class="fu">plot</span>(f, <span class="fl">1</span>, <span class="fl">10</span>, label<span class="op">=</span>L<span class="st">"</span><span class="sc">$</span><span class="st">\</span>log_2<span class="st">(x)</span><span class="sc">$</span><span class="st">")</span></span>
+<span id="cb16-31"><a href="#cb16-31"></a>plot<span class="st">!(g, label=L"</span><span class="op">$</span><span class="fu">\ln</span>(x)<span class="op">$</span><span class="st">")</span></span>
+<span id="cb16-32"><a href="#cb16-32"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -869,35 +1041,35 @@ Resultado
 <p>También es posible asociar una etiqueta con un identificador único a cada bloque resaltado para poder referenciarlo en el texto del documento. Dependiendo del tipo de bloque la etiqueta debe tener los siguientes prefijos: <code>#nte-</code> para bloques de nota, <code>#tip-</code> para bloques de consejo, <code>#wrn-</code> para bloques de advertencia, <code>#imp-</code> para bloques de importancia, <code>cau-</code> para bloques de precaución.</p>
 <div id="exm-bloques-resaltados" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 14</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> Bloques resaltados</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co">---</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a>:::{.callout-note}</span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">## Bloque de Nota</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>Este es un bloque de nota.</span>
-<span id="cb15-9"><a href="#cb15-9"></a>:::</span>
-<span id="cb15-10"><a href="#cb15-10"></a></span>
-<span id="cb15-11"><a href="#cb15-11"></a>:::{.callout-tip appearance="simple"}</span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="fu">## Bloque de Consejo</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a>Este es un bloque de consejo con apariencia simple.</span>
-<span id="cb15-14"><a href="#cb15-14"></a>:::</span>
-<span id="cb15-15"><a href="#cb15-15"></a></span>
-<span id="cb15-16"><a href="#cb15-16"></a>:::{.callout-warning appearance="minimal"}</span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">## Bloque de Advertencia</span></span>
-<span id="cb15-18"><a href="#cb15-18"></a>Este es un bloque de advertencia con apariencia mínimo.</span>
-<span id="cb15-19"><a href="#cb15-19"></a>:::</span>
-<span id="cb15-20"><a href="#cb15-20"></a></span>
-<span id="cb15-21"><a href="#cb15-21"></a>:::{.callout-important collapse="true"}</span>
-<span id="cb15-22"><a href="#cb15-22"></a><span class="fu">## Bloque de Importancia</span></span>
-<span id="cb15-23"><a href="#cb15-23"></a>Este es un bloque de importancia colapsado.</span>
-<span id="cb15-24"><a href="#cb15-24"></a>:::</span>
-<span id="cb15-25"><a href="#cb15-25"></a></span>
-<span id="cb15-26"><a href="#cb15-26"></a>:::{.callout-caution icon="false"}</span>
-<span id="cb15-27"><a href="#cb15-27"></a><span class="fu">## Bloque de Precaución</span></span>
-<span id="cb15-28"><a href="#cb15-28"></a>Este es un bloque de precaución sin icono.</span>
-<span id="cb15-29"><a href="#cb15-29"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="an">title:</span><span class="co"> Bloques resaltados</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co">---</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a>:::{.callout-note}</span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="fu">## Bloque de Nota</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>Este es un bloque de nota.</span>
+<span id="cb17-9"><a href="#cb17-9"></a>:::</span>
+<span id="cb17-10"><a href="#cb17-10"></a></span>
+<span id="cb17-11"><a href="#cb17-11"></a>:::{.callout-tip appearance="simple"}</span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="fu">## Bloque de Consejo</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a>Este es un bloque de consejo con apariencia simple.</span>
+<span id="cb17-14"><a href="#cb17-14"></a>:::</span>
+<span id="cb17-15"><a href="#cb17-15"></a></span>
+<span id="cb17-16"><a href="#cb17-16"></a>:::{.callout-warning appearance="minimal"}</span>
+<span id="cb17-17"><a href="#cb17-17"></a><span class="fu">## Bloque de Advertencia</span></span>
+<span id="cb17-18"><a href="#cb17-18"></a>Este es un bloque de advertencia con apariencia mínimo.</span>
+<span id="cb17-19"><a href="#cb17-19"></a>:::</span>
+<span id="cb17-20"><a href="#cb17-20"></a></span>
+<span id="cb17-21"><a href="#cb17-21"></a>:::{.callout-important collapse="true"}</span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="fu">## Bloque de Importancia</span></span>
+<span id="cb17-23"><a href="#cb17-23"></a>Este es un bloque de importancia colapsado.</span>
+<span id="cb17-24"><a href="#cb17-24"></a>:::</span>
+<span id="cb17-25"><a href="#cb17-25"></a></span>
+<span id="cb17-26"><a href="#cb17-26"></a>:::{.callout-caution icon="false"}</span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="fu">## Bloque de Precaución</span></span>
+<span id="cb17-28"><a href="#cb17-28"></a>Este es un bloque de precaución sin icono.</span>
+<span id="cb17-29"><a href="#cb17-29"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -931,35 +1103,35 @@ Resultado
 </blockquote>
 <div id="exm-entornos-matematicos" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 15</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="an">title:</span><span class="co"> Entornos matemáticos</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">---</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a></span>
-<span id="cb16-6"><a href="#cb16-6"></a>El siguiente teorema es uno de los teoremas más famosos de las Matemáticas.</span>
-<span id="cb16-7"><a href="#cb16-7"></a></span>
-<span id="cb16-8"><a href="#cb16-8"></a>:::{#thm-pitagoras}</span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="fu">## Pitágoras</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>En un triángulo rectángulo con catetos $a$ y $b$ y hipotenusa $c$, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos,</span>
-<span id="cb16-11"><a href="#cb16-11"></a></span>
-<span id="cb16-12"><a href="#cb16-12"></a>$$</span>
-<span id="cb16-13"><a href="#cb16-13"></a>c^2 = a^2 + b^2.</span>
-<span id="cb16-14"><a href="#cb16-14"></a>$$</span>
-<span id="cb16-15"><a href="#cb16-15"></a>:::</span>
-<span id="cb16-16"><a href="#cb16-16"></a></span>
-<span id="cb16-17"><a href="#cb16-17"></a>:::{#exr-pitagoras}</span>
-<span id="cb16-18"><a href="#cb16-18"></a>Calcula la hipotenusa del un triángulo rectángulo con catetos de longitud 3 y 4.</span>
-<span id="cb16-19"><a href="#cb16-19"></a>:::</span>
-<span id="cb16-20"><a href="#cb16-20"></a></span>
-<span id="cb16-21"><a href="#cb16-21"></a>:::{#sol-pitagoras}</span>
-<span id="cb16-22"><a href="#cb16-22"></a>Aplicando el teorema @thm-pitagoras, obtenemos</span>
-<span id="cb16-23"><a href="#cb16-23"></a></span>
-<span id="cb16-24"><a href="#cb16-24"></a>$$</span>
-<span id="cb16-25"><a href="#cb16-25"></a>c^2 = 3^2 + 4^2 = 9 + 16 = 25,</span>
-<span id="cb16-26"><a href="#cb16-26"></a>$$</span>
-<span id="cb16-27"><a href="#cb16-27"></a></span>
-<span id="cb16-28"><a href="#cb16-28"></a>de donde se sigue que $c = \sqrt{25}=5$.</span>
-<span id="cb16-29"><a href="#cb16-29"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">---</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="an">title:</span><span class="co"> Entornos matemáticos</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">---</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a>El siguiente teorema es uno de los teoremas más famosos de las Matemáticas.</span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a>:::{#thm-pitagoras}</span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="fu">## Pitágoras</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>En un triángulo rectángulo con catetos $a$ y $b$ y hipotenusa $c$, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos,</span>
+<span id="cb18-11"><a href="#cb18-11"></a></span>
+<span id="cb18-12"><a href="#cb18-12"></a>$$</span>
+<span id="cb18-13"><a href="#cb18-13"></a>c^2 = a^2 + b^2.</span>
+<span id="cb18-14"><a href="#cb18-14"></a>$$</span>
+<span id="cb18-15"><a href="#cb18-15"></a>:::</span>
+<span id="cb18-16"><a href="#cb18-16"></a></span>
+<span id="cb18-17"><a href="#cb18-17"></a>:::{#exr-pitagoras}</span>
+<span id="cb18-18"><a href="#cb18-18"></a>Calcula la hipotenusa del un triángulo rectángulo con catetos de longitud 3 y 4.</span>
+<span id="cb18-19"><a href="#cb18-19"></a>:::</span>
+<span id="cb18-20"><a href="#cb18-20"></a></span>
+<span id="cb18-21"><a href="#cb18-21"></a>:::{#sol-pitagoras}</span>
+<span id="cb18-22"><a href="#cb18-22"></a>Aplicando el teorema @thm-pitagoras, obtenemos</span>
+<span id="cb18-23"><a href="#cb18-23"></a></span>
+<span id="cb18-24"><a href="#cb18-24"></a>$$</span>
+<span id="cb18-25"><a href="#cb18-25"></a>c^2 = 3^2 + 4^2 = 9 + 16 = 25,</span>
+<span id="cb18-26"><a href="#cb18-26"></a>$$</span>
+<span id="cb18-27"><a href="#cb18-27"></a></span>
+<span id="cb18-28"><a href="#cb18-28"></a>de donde se sigue que $c = \sqrt{25}=5$.</span>
+<span id="cb18-29"><a href="#cb18-29"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -981,32 +1153,32 @@ Resultado
 <p>Quarto permite referenciar casi cualquier elemento de los que hemos visto hasta ahora en el texto del documento, como secciones, figuras, tablas, bloques de código, bloques resaltados, entornos matemáticos, etc, siempre y cuando tengan asociada una etiqueta con un identificador único. Para etiquetar un elemento se utiliza la sintaxis <code>{#tipo-etiqueta}</code>, mientras que para referenciarlo se utiliza la sintaxis <code>@tipo-etiqueta</code>, donde <code>etiqueta</code> es el identificador único del elemento y <code>tipo</code> es el tipo de elemento, que puede ser <code>sec</code> para secciones, <code>eq</code> para ecuaciones, <code>thm</code> para teoremas, <code>def</code> para definiciones, etc.</p>
 <div id="exm-referencias-cruzadas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 16</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">---</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="an">title:</span><span class="co"> Referencias cruzadas</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="co">---</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="fu">## Funciones trigonométricas {#sec-trigonometria}</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a></span>
-<span id="cb17-8"><a href="#cb17-8"></a>Las funciones trigonométricas básicas se definen a través de las relaciones entre los lados de un triángulo rectángulo.</span>
-<span id="cb17-9"><a href="#cb17-9"></a></span>
-<span id="cb17-10"><a href="#cb17-10"></a>:::{#def-coseno}</span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="fu">## Coseno</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a>En un triángulo rectángulo con cateto adyacente $a$, cateto opuesto $b$ y hipotenusa $c$, el coseno del ángulo $\theta$ entre el cateto adyacente y la hipotenusa, se define como el cociente entre el cateto adyacente a $\theta$ y la hipotenusa,</span>
-<span id="cb17-13"><a href="#cb17-13"></a></span>
-<span id="cb17-14"><a href="#cb17-14"></a>$$</span>
-<span id="cb17-15"><a href="#cb17-15"></a>\cos(\theta) = \frac{a}{c}.</span>
-<span id="cb17-16"><a href="#cb17-16"></a>$$ {#eq-coseno}</span>
-<span id="cb17-17"><a href="#cb17-17"></a>:::</span>
-<span id="cb17-18"><a href="#cb17-18"></a></span>
-<span id="cb17-19"><a href="#cb17-19"></a><span class="in">```{julia}</span></span>
-<span id="cb17-20"><a href="#cb17-20"></a><span class="co">#| label: fig-coseno</span></span>
-<span id="cb17-21"><a href="#cb17-21"></a><span class="co">#| fig-cap: Gráfica de la función coseno.</span></span>
-<span id="cb17-22"><a href="#cb17-22"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
-<span id="cb17-23"><a href="#cb17-23"></a><span class="fu">plot</span>(cos, <span class="fl">0</span>, <span class="fl">2</span>pi, label<span class="op">=</span>L<span class="st">"\cos(x)"</span>)</span>
-<span id="cb17-24"><a href="#cb17-24"></a><span class="in">```</span></span>
-<span id="cb17-25"><a href="#cb17-25"></a></span>
-<span id="cb17-26"><a href="#cb17-26"></a>La figura @fig-coseno muestra la gráfica de la función coseno (ver @def-coseno de la sección @sec-trigonometria).</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="an">title:</span><span class="co"> Referencias cruzadas</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co">---</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="fu">## Funciones trigonométricas {#sec-trigonometria}</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a>Las funciones trigonométricas básicas se definen a través de las relaciones entre los lados de un triángulo rectángulo.</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a>:::{#def-coseno}</span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="fu">## Coseno</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>En un triángulo rectángulo con cateto adyacente $a$, cateto opuesto $b$ y hipotenusa $c$, el coseno del ángulo $\theta$ entre el cateto adyacente y la hipotenusa, se define como el cociente entre el cateto adyacente a $\theta$ y la hipotenusa,</span>
+<span id="cb19-13"><a href="#cb19-13"></a></span>
+<span id="cb19-14"><a href="#cb19-14"></a>$$</span>
+<span id="cb19-15"><a href="#cb19-15"></a>\cos(\theta) = \frac{a}{c}.</span>
+<span id="cb19-16"><a href="#cb19-16"></a>$$ {#eq-coseno}</span>
+<span id="cb19-17"><a href="#cb19-17"></a>:::</span>
+<span id="cb19-18"><a href="#cb19-18"></a></span>
+<span id="cb19-19"><a href="#cb19-19"></a><span class="in">```{julia}</span></span>
+<span id="cb19-20"><a href="#cb19-20"></a><span class="co">#| label: fig-coseno</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a><span class="co">#| fig-cap: Gráfica de la función coseno.</span></span>
+<span id="cb19-22"><a href="#cb19-22"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">LaTeXStrings</span></span>
+<span id="cb19-23"><a href="#cb19-23"></a><span class="fu">plot</span>(cos, <span class="fl">0</span>, <span class="fl">2</span>pi, label<span class="op">=</span>L<span class="st">"\cos(x)"</span>)</span>
+<span id="cb19-24"><a href="#cb19-24"></a><span class="in">```</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a></span>
+<span id="cb19-26"><a href="#cb19-26"></a>La figura @fig-coseno muestra la gráfica de la función coseno (ver @def-coseno de la sección @sec-trigonometria).</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -1028,20 +1200,20 @@ Resultado
 <p>Quarto utiliza <a href="https://pandoc.org/">Pandoc</a> para generar citas y referencias bibliográficas en el documento final. Para ello, lo primero es disponer de una base de datos con las referencias bibliográficas en formato <code>BibLaTeX</code> o <code>BibTeX</code> con extensión <code>.bib</code>. Este es el mismo formato que se utiliza en las referencias bibliográficas en LaTeX, y muchos gestores bibliográficos como <a href="https://www.zotero.org/">Zotero</a> o <a href="https://www.mendeley.com/">Mendeley</a> permiten exportar las referencias bibliográficas en este formato.</p>
 <p>La base de datos con las referencias bibliográficas se especifica en el encabezado YAML del documento con la propiedad <code>bibliography: fichero.bib</code>.</p>
 <p>Para citar una referencia bibliográfica en el texto del documento se utiliza la sintaxis <code>[@referencia]</code>, donde <code>referencia</code> es el identificador de la referencia bibliográfica en la base de datos. Si se quiere citar varias referencias bibliográficas a la vez se utiliza la sintaxis <code>[@referencia1; @referencia2; @referencia3]</code>.</p>
-<p>Por último, también se puede especificar el formato de la bibliografía en el documento final con la propiedad <code>cls: estilo</code>, donde <code>estilo</code> es el estilo de la bibliografía en formato <a href="https://citationstyles.org/">CLS</a> (citation style language). Por defecto, se utiliza el estilo <a href="https://www.chicagomanualofstyle.org/home.html">Chicago</a> pero pueden utilizarse otros estilos como los que aparecen en el <a href="https://github.com/citation-style-language/styles">repositorio de estilos CLS</a>.</p>
+<p>Por último, también se puede especificar el formato de la bibliografía en el documento final con la propiedad <code>cls: estilo</code>, donde <code>estilo</code> es el estilo de la bibliografía en formato <a href="https://citationstyles.org/">CSL</a> (citation style language). Por defecto, se utiliza el estilo <a href="https://www.chicagomanualofstyle.org/home.html">Chicago</a> pero pueden utilizarse otros estilos como los que aparecen en el <a href="https://github.com/citation-style-language/styles">repositorio de estilos CSL</a>.</p>
 <div id="exm-referencias-bibliograficas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 17</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">---</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="an">title:</span><span class="co"> Referencias bibliográficas</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="an">bibliography:</span><span class="co"> bibliografia.bib</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="an">cls:</span><span class="co"> apa.cls</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">---</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a></span>
-<span id="cb18-8"><a href="#cb18-8"></a>Bienvenidos a este tutorial de **Quarto** (desarrollado por @quarto2024).</span>
-<span id="cb18-9"><a href="#cb18-9"></a></span>
-<span id="cb18-10"><a href="#cb18-10"></a>Quarto está especialmente diseñado para elaborar documentos</span>
-<span id="cb18-11"><a href="#cb18-11"></a>científicos y técnicos reproducibles <span class="co">[</span><span class="ot">ver @knuth1984</span><span class="co">]</span>.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="an">title:</span><span class="co"> Referencias bibliográficas</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="an">bibliography:</span><span class="co"> bibliografia.bib</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co">---</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a>Bienvenidos a este tutorial de **Quarto** (desarrollado por @quarto2024).</span>
+<span id="cb20-9"><a href="#cb20-9"></a></span>
+<span id="cb20-10"><a href="#cb20-10"></a>Quarto está especialmente diseñado para elaborar documentos</span>
+<span id="cb20-11"><a href="#cb20-11"></a>científicos y técnicos reproducibles <span class="co">[</span><span class="ot">ver @knuth1984</span><span class="co">]</span>.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -1060,30 +1232,30 @@ Resultado
 </section>
 <section id="temas" class="level2">
 <h2 class="anchored" data-anchor-id="temas">Temas</h2>
-<p>Quarto permite personalizar la apariencia del documento final mediante temas, especialmente cuando el documento de salida de HTML. Un tema es un conjunto de estilos que se aplican al documento final para cambiar la tipografía, los colores, los márgenes, el espaciado, etc. Quarto incluye 25 <a href="https://quarto.org/docs/output-formats/html-themes.html">temas predefinidos</a>, pero también es posible crear temas personalizados mediante hojas de estilo en cascada (CSS).</p>
+<p>Quarto permite personalizar la apariencia del documento final mediante temas, especialmente cuando el documento de salida de HTML. Un tema es un conjunto de estilos que se aplican al documento final para cambiar la tipografía, los colores, los márgenes, el espaciado, etc. Quarto incluye varios <a href="https://quarto.org/docs/output-formats/html-themes.html">temas predefinidos</a>, pero también es posible crear temas personalizados mediante hojas de estilo en cascada (CSS).</p>
 <p>Para aplicar un tema al documento final hay que añadir al encabezado YAML la propiedad <code>theme: nombre</code>, donde <code>nombre</code> es el nombre del tema o bien la ruta al fichero CSS del tema personalizado.</p>
 <div id="exm-temas" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 18</strong></span> El siguiente código fuente</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">---</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="an">title:</span><span class="co"> "Una introducción a Quarto"</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="an">author:</span><span class="co"> "Alfredo Sánchez Alberca"</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="an">date:</span><span class="co"> "2024-02-29"</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="an">output:</span><span class="co"> html</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="an">bibliography:</span><span class="co"> bibliografia.bib</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="an">theme:</span><span class="co"> darkly</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a><span class="an">lang:</span><span class="co"> es</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a><span class="co">---</span></span>
-<span id="cb19-10"><a href="#cb19-10"></a></span>
-<span id="cb19-11"><a href="#cb19-11"></a>Bienvenidos a este tutorial de **Quarto**.</span>
-<span id="cb19-12"><a href="#cb19-12"></a></span>
-<span id="cb19-13"><a href="#cb19-13"></a>Quarto está especialmente diseñado para elaborar documentos</span>
-<span id="cb19-14"><a href="#cb19-14"></a>científicos y técnicos reproducibles (ver @knuth84), y permite incluir código </span>
-<span id="cb19-15"><a href="#cb19-15"></a>como el de más abajo.</span>
-<span id="cb19-16"><a href="#cb19-16"></a></span>
-<span id="cb19-17"><a href="#cb19-17"></a><span class="in">```{r}</span></span>
-<span id="cb19-18"><a href="#cb19-18"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
-<span id="cb19-19"><a href="#cb19-19"></a><span class="fu">hist</span>(x)</span>
-<span id="cb19-20"><a href="#cb19-20"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="an">title:</span><span class="co"> "Una introducción a Quarto"</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="an">author:</span><span class="co"> "Alfredo Sánchez Alberca"</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="an">date:</span><span class="co"> "2024-02-29"</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="an">output:</span><span class="co"> html</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="an">bibliography:</span><span class="co"> bibliografia.bib</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="an">theme:</span><span class="co"> darkly</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a><span class="co">---</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a></span>
+<span id="cb21-11"><a href="#cb21-11"></a>Bienvenidos a este tutorial de **Quarto**.</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a>Quarto está especialmente diseñado para elaborar documentos</span>
+<span id="cb21-14"><a href="#cb21-14"></a>científicos y técnicos reproducibles (ver @knuth84), y permite incluir código </span>
+<span id="cb21-15"><a href="#cb21-15"></a>como el de más abajo.</span>
+<span id="cb21-16"><a href="#cb21-16"></a></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="in">```{r}</span></span>
+<span id="cb21-18"><a href="#cb21-18"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
+<span id="cb21-19"><a href="#cb21-19"></a><span class="fu">hist</span>(x)</span>
+<span id="cb21-20"><a href="#cb21-20"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>produce el siguiente resultado:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Resultado">
 <div class="callout-header d-flex align-content-center">
@@ -1119,380 +1291,255 @@ científicos con Quarto.”</span> March 1, 2024.
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
       });
     }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1500,185 +1547,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

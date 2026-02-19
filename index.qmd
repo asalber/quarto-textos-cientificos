@@ -50,6 +50,21 @@ Quarto puede descargarse desde el [sitio web de Quarto](https://quarto.org/docs/
 
 Aunque se puede utilizar desde la línea de comandos, es recomendable instalarlo en un entorno de desarrollo integrado (IDE) como [RStudio](https://www.rstudio.com/products/rstudio/download/), [Visual Studio Code](https://code.visualstudio.com/), o [Jupyter Notebooks](https://jupyter.org/). Estos IDEs ofrecen una interfaz gráfica para trabajar con Quarto, lo que facilita la creación y edición de documentos.
 
+Si vamos a generar documentos en formato `pdf` necesitamos instalar también una distribución de `TeX`. En Windows, se puede instalar [`MiKTeX`](https://miktex.org/download), en macOS se puede instalar [`MacTeX`](http://www.tug.org/mactex/), y en Linux se puede instalar [`TeX Live`](https://www.tug.org/texlive/), aunque el método más sencillo es instala la distribución `TinyTex`, que es una versión reducida de `TeX Live`, mediante el comando
+
+```sh 
+quarto install tinytex
+```
+
+o bien
+
+```sh 
+quarto install tinytex --update-path
+```
+
+si queremos añadir `TinyTex` al `PATH` del sistema para poder utilizarlo desde la línea de comandos.
+
+
 ### Integración con RStudio
 
 Las últimas versiones de RStudio ya reconocen los ficheros con extensión `*.qmd` como ficheros de código fuente de Quarto, lo que permite compilarlos a diferentes formatos con un solo clic, al igual que ocurre con los ficheros en formato R Markdown. Además, incorpora ayuda contextual y menús para facilitar la creación de elementos como tablas, figuras, referencias bibliográficas, etc.
@@ -483,7 +498,7 @@ Existen otras opciones de configuración del resultado de la ejecución que depe
 
 ### Bloques de código en Python
 
-Los bloques de código en Python se renderizan por defecto con el kernel `pytho3` de `jupyter`. Conviene además tener instalado el paquete `jupyter-cache` para que los resultados de la ejecución de los bloques de código se guarden en caché y no se ejecuten de nuevo si no han cambiado.
+Los bloques de código en Python se renderizan por defecto con el kernel `python3` de `jupyter`. Conviene además tener instalado el paquete `jupyter-cache` para que los resultados de la ejecución de los bloques de código se guarden en caché y no se ejecuten de nuevo si no han cambiado.
 
 ### Bloques de código en R
 
@@ -835,7 +850,7 @@ La base de datos con las referencias bibliográficas se especifica en el encabez
 
 Para citar una referencia bibliográfica en el texto del documento se utiliza la sintaxis `[@referencia]`, donde `referencia` es el identificador de la referencia bibliográfica en la base de datos. Si se quiere citar varias referencias bibliográficas a la vez se utiliza la sintaxis `[@referencia1; @referencia2; @referencia3]`.
 
-Por último, también se puede especificar el formato de la bibliografía en el documento final con la propiedad `cls: estilo`, donde `estilo` es el estilo de la bibliografía en formato [CLS](https://citationstyles.org/) (citation style language). Por defecto, se utiliza el estilo [Chicago](https://www.chicagomanualofstyle.org/home.html) pero pueden utilizarse otros estilos como los que aparecen en el [repositorio de estilos CLS](https://github.com/citation-style-language/styles).
+Por último, también se puede especificar el formato de la bibliografía en el documento final con la propiedad `cls: estilo`, donde `estilo` es el estilo de la bibliografía en formato [CSL](https://citationstyles.org/) (citation style language). Por defecto, se utiliza el estilo [Chicago](https://www.chicagomanualofstyle.org/home.html) pero pueden utilizarse otros estilos como los que aparecen en el [repositorio de estilos CSL](https://github.com/citation-style-language/styles).
 
 ::: {#exm-referencias-bibliograficas}
 El siguiente código fuente
@@ -844,7 +859,7 @@ El siguiente código fuente
 ---
 title: Referencias bibliográficas
 bibliography: bibliografia.bib
-cls: apa.cls
+csl: apa.csl
 lang: es
 ---
 
@@ -863,7 +878,7 @@ produce el siguiente resultado:
 
 ## Temas
 
-Quarto permite personalizar la apariencia del documento final mediante temas, especialmente cuando el documento de salida de HTML. Un tema es un conjunto de estilos que se aplican al documento final para cambiar la tipografía, los colores, los márgenes, el espaciado, etc. Quarto incluye 25 [temas predefinidos](https://quarto.org/docs/output-formats/html-themes.html), pero también es posible crear temas personalizados mediante hojas de estilo en cascada (CSS).
+Quarto permite personalizar la apariencia del documento final mediante temas, especialmente cuando el documento de salida de HTML. Un tema es un conjunto de estilos que se aplican al documento final para cambiar la tipografía, los colores, los márgenes, el espaciado, etc. Quarto incluye varios [temas predefinidos](https://quarto.org/docs/output-formats/html-themes.html), pero también es posible crear temas personalizados mediante hojas de estilo en cascada (CSS).
 
 Para aplicar un tema al documento final hay que añadir al encabezado YAML la propiedad `theme: nombre`, donde `nombre` es el nombre del tema o bien la ruta al fichero CSS del tema personalizado.
 
